@@ -1,0 +1,39 @@
+/* Forge Elevator — Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-forge-fire text-white font-semibold px-6 py-3 rounded-sm
+           hover:bg-forge-amber transition-colors duration-200 shadow-md;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-white text-white font-semibold px-6 py-3 rounded-sm
+           hover:bg-white hover:text-forge-navy transition-colors duration-200;
+  }
+
+  .section-label {
+    @apply text-forge-fire font-semibold text-sm uppercase tracking-widest;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-bold text-forge-navy leading-tight;
+  }
+
+  .card {
+    @apply bg-white rounded-sm shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-200;
+  }
+}
