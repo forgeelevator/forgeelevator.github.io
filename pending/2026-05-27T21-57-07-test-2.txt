@@ -1,0 +1,10 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 27, 2026 at 5:57 PM
+Signed by: test 2
+
+CHANGES (1 field):
+
+[services-hero-body]
+Section: Services › Hero › Body paragraph
+Original: From routine maintenance contracts to full modernizations and 24/7 emergency response — Forge Elevator covers it all for East Tennessee property owners and managers.
+Requested: From routine maintenance contracts to full modernizations and 24/7 emergency response — Forge Elevator covers it all for East Tennessee property owners and managers. test2
