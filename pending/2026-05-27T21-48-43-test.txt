@@ -1,0 +1,20 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 27, 2026 at 5:48 PM
+Signed by: test
+
+CHANGES (3 fields):
+
+[services-hero-eyebrow]
+Section: Services › Hero › Eyebrow
+Original: What We Offer
+Requested: What We Offerf
+
+[about-hero-eyebrow]
+Section: About › Hero › Eyebrow
+Original: About Forge Elevator
+Requested: About Forge Elevatora
+
+[home-hero-eyebrow]
+Section: Home › Hero › Eyebrow
+Original: East Tennessee's Elevator Specialists
+Requested: East Tennessee's Elevator Specialistsd
