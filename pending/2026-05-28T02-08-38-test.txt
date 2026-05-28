@@ -1,0 +1,15 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 27, 2026 at 10:08 PM
+Signed by: test
+
+CHANGES (2 fields):
+
+[about-hero-h1-line1]
+Section: About › Hero › Headline — line 1
+Original: Built on Reputation.
+Requested: Built on Reputatiofn.
+
+[about-hero-eyebrow]
+Section: About › Hero › Eyebrow
+Original: About Forge Elevator
+Requested: About Forge Elevator a
