@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Send } from 'lucide-react'
+import EditableField from '../components/EditableField'
 
 const SERVICE_TYPES = [
   'Preventive Maintenance',
@@ -16,6 +17,17 @@ const URGENCY = [
   { value: 'urgent', label: '⚠️ Urgent — Equipment issue needs prompt attention' },
   { value: 'scheduled', label: '📅 Schedule a service visit' },
   { value: 'quote', label: '💬 Request a quote / proposal' },
+]
+
+const serviceAreas = [
+  { id: 'area-knoxville',   text: 'Knoxville' },
+  { id: 'area-oak-ridge',   text: 'Oak Ridge' },
+  { id: 'area-maryville',   text: 'Maryville / Alcoa' },
+  { id: 'area-morristown',  text: 'Morristown' },
+  { id: 'area-sevierville', text: 'Sevierville / Gatlinburg' },
+  { id: 'area-jc',          text: 'Johnson City / Kingsport' },
+  { id: 'area-bristol',     text: 'Bristol, TN' },
+  { id: 'area-surrounding', text: 'Surrounding East TN Counties' },
 ]
 
 export default function Contact() {
@@ -103,14 +115,27 @@ export default function Contact() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="section-label mb-3">Get In Touch</p>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
+          <EditableField id="contact-hero-eyebrow" label="Contact › Hero › Eyebrow" as="p" className="section-label mb-3">
+            Get In Touch
+          </EditableField>
+          <EditableField
+            id="contact-hero-h1"
+            label="Contact › Hero › Headline"
+            as="h1"
+            className="font-display text-5xl md:text-6xl font-bold text-white leading-tight mb-5"
+          >
             Let's Talk Elevators
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
+          </EditableField>
+          <EditableField
+            id="contact-hero-body"
+            label="Contact › Hero › Body paragraph"
+            as="p"
+            multiline
+            className="text-gray-300 text-lg max-w-2xl leading-relaxed"
+          >
             Request a quote, schedule a service visit, or reach out for emergency support.
             Our team is ready to help.
-          </p>
+          </EditableField>
         </div>
         <div
           className="absolute bottom-0 left-0 right-0 h-12 bg-forge-light"
@@ -126,72 +151,94 @@ export default function Contact() {
           <div className="lg:col-span-1">
             {/* Emergency callout */}
             <div className="bg-forge-fire rounded-sm p-6 text-white mb-6">
-              <h3 className="font-display text-xl font-bold mb-2">Emergency? Call First.</h3>
-              <p className="text-sm text-white/80 mb-4">
+              <EditableField
+                id="contact-emergency-title"
+                label="Contact › Sidebar › Emergency callout title"
+                as="h3"
+                className="font-display text-xl font-bold mb-2"
+              >
+                Emergency? Call First.
+              </EditableField>
+              <EditableField
+                id="contact-emergency-body"
+                label="Contact › Sidebar › Emergency callout body"
+                as="p"
+                multiline
+                className="text-sm text-white/80 mb-4"
+              >
                 For passenger entrapments or elevator failures requiring immediate response,
                 call us directly — don't wait for a form.
-              </p>
+              </EditableField>
               <a
                 href="tel:+18651234567"
                 className="flex items-center gap-2 text-white font-bold text-lg hover:underline"
               >
                 <Phone size={20} /> (865) 123-4567
               </a>
-              <p className="text-xs text-white/60 mt-1">Available 24 hours, 7 days</p>
+              <EditableField id="contact-emergency-hours" label="Contact › Emergency Callout › Hours note" as="p" className="text-xs text-white/60 mt-1">Available 24 hours, 7 days</EditableField>
             </div>
 
             {/* Contact details */}
             <div className="bg-white rounded-sm shadow-sm border border-gray-100 p-6 space-y-5">
-              <h3 className="font-semibold text-forge-navy">Contact Details</h3>
+              <EditableField id="contact-details-heading" label="Contact › Sidebar › 'Contact Details' heading" as="h3" className="font-semibold text-forge-navy">Contact Details</EditableField>
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <Phone size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <a href="tel:+18651234567" className="hover:text-forge-fire transition-colors">(865) 123-4567</a>
-                  <span className="block text-xs text-gray-400">Main &amp; Emergency Line</span>
+                  <EditableField
+                    id="contact-info-phone"
+                    label="Contact › Sidebar › Phone number (also update the href tel: link)"
+                    as="span"
+                    className="hover:text-forge-fire transition-colors"
+                  >
+                    (865) 123-4567
+                  </EditableField>
+                  <EditableField id="contact-info-phone-sub" label="Contact › Sidebar › Phone sublabel" as="span" className="block text-xs text-gray-400">Main &amp; Emergency Line</EditableField>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <Mail size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <a href="mailto:service@forgeelevator.com" className="hover:text-forge-fire transition-colors">
+                  <EditableField
+                    id="contact-info-email"
+                    label="Contact › Sidebar › Email address (also update the href mailto: link)"
+                    as="span"
+                    className="hover:text-forge-fire transition-colors"
+                  >
                     service@forgeelevator.com
-                  </a>
-                  <span className="block text-xs text-gray-400">For quotes &amp; general inquiries</span>
+                  </EditableField>
+                  <EditableField id="contact-info-email-sub" label="Contact › Sidebar › Email sublabel" as="span" className="block text-xs text-gray-400">For quotes &amp; general inquiries</EditableField>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <MapPin size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <span>Knoxville, Tennessee</span>
-                  <span className="block text-xs text-gray-400">Serving East Tennessee</span>
+                  <EditableField id="contact-info-city" label="Contact › Sidebar › City / location">
+                    Knoxville, Tennessee
+                  </EditableField>
+                  <EditableField id="contact-info-city-sub" label="Contact › Sidebar › City sublabel" as="span" className="block text-xs text-gray-400">Serving East Tennessee</EditableField>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <Clock size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <span>Mon–Fri: 7:00 AM – 5:00 PM</span>
-                  <span className="block text-xs text-gray-400">Emergency service available 24/7</span>
+                  <EditableField id="contact-info-hours" label="Contact › Sidebar › Business hours">
+                    Mon–Fri: 7:00 AM – 5:00 PM
+                  </EditableField>
+                  <EditableField id="contact-info-hours-sub" label="Contact › Sidebar › Hours sublabel" as="span" className="block text-xs text-gray-400">Emergency service available 24/7</EditableField>
                 </div>
               </div>
             </div>
 
             {/* Service area */}
             <div className="bg-forge-navy rounded-sm p-6 text-white mt-6">
-              <h3 className="font-semibold text-sm uppercase tracking-widest mb-3 text-forge-fire">Service Area</h3>
+              <EditableField id="contact-service-area-heading" label="Contact › Service Area › Heading" as="h3" className="font-semibold text-sm uppercase tracking-widest mb-3 text-forge-fire">Service Area</EditableField>
               <ul className="space-y-1.5 text-sm text-gray-300">
-                {[
-                  'Knoxville',
-                  'Oak Ridge',
-                  'Maryville / Alcoa',
-                  'Morristown',
-                  'Sevierville / Gatlinburg',
-                  'Johnson City / Kingsport',
-                  'Bristol, TN',
-                  'Surrounding East TN Counties',
-                ].map((city) => (
-                  <li key={city} className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-forge-fire rounded-full" />
-                    {city}
+                {serviceAreas.map(({ id, text }) => (
+                  <li key={id} className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-forge-fire rounded-full flex-shrink-0" />
+                    <EditableField id={`contact-${id}`} label={`Contact › Service Area › ${text}`}>
+                      {text}
+                    </EditableField>
                   </li>
                 ))}
               </ul>
@@ -201,10 +248,22 @@ export default function Contact() {
           {/* ── Contact form ── */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-sm shadow-md border border-gray-100 p-8">
-              <h2 className="font-display text-2xl font-bold text-forge-navy mb-1">Send Us a Message</h2>
-              <p className="text-gray-500 text-sm mb-8">
+              <EditableField
+                id="contact-form-title"
+                label="Contact › Form › Title"
+                as="h2"
+                className="font-display text-2xl font-bold text-forge-navy mb-1"
+              >
+                Send Us a Message
+              </EditableField>
+              <EditableField
+                id="contact-form-subtitle"
+                label="Contact › Form › Subtitle"
+                as="p"
+                className="text-gray-500 text-sm mb-8"
+              >
                 Fill out the form below and we'll respond promptly. Emergency? Please call.
-              </p>
+              </EditableField>
 
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
 

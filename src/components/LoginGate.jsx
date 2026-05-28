@@ -1,14 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useEdit } from '../context/EditContext'
 
-const CORRECT_USER = 'forgeadmin'
-const CORRECT_PASS = 'forgepass1!'
-const SESSION_KEY = 'forge_demo_auth'
+// Credentials are read from environment variables at build time.
+// Set VITE_ADMIN_USER and VITE_ADMIN_PASS in a .env.local file (not committed to git).
+// Note: Vite bakes env vars into the compiled bundle — not a server-side secret.
+// Suitable for a private preview / staging site, not a public-facing product.
+const CORRECT_USER = import.meta.env.VITE_ADMIN_USER ?? ''
+const CORRECT_PASS = import.meta.env.VITE_ADMIN_PASS ?? ''
+const SESSION_KEY = 'forge_preview_auth'
 
 export default function LoginGate({ children }) {
+  const { setIsAdmin, isAdmin } = useEdit()
   const [authed, setAuthed] = useState(() => sessionStorage.getItem(SESSION_KEY) === '1')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+
+  // React to logout() clearing isAdmin — clears session and resets the login form
+  // Safe on refresh because EditContext also initialises isAdmin from sessionStorage,
+  // so both start as true and !isAdmin is false on first render.
+  useEffect(() => {
+    if (!isAdmin && authed) {
+      sessionStorage.removeItem(SESSION_KEY)
+      setAuthed(false)
+      setUsername('')
+      setPassword('')
+    }
+  }, [isAdmin])
 
   if (authed) return children
 
@@ -17,6 +35,7 @@ export default function LoginGate({ children }) {
     if (username === CORRECT_USER && password === CORRECT_PASS) {
       sessionStorage.setItem(SESSION_KEY, '1')
       setAuthed(true)
+      setIsAdmin(true)
     } else {
       setError('Invalid username or password.')
       setPassword('')

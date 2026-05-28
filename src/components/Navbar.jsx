@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
+import { useEdit } from '../context/EditContext'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -10,6 +11,7 @@ const NAV_LINKS = [
 ]
 
 export default function Navbar() {
+  const { isAdmin, isEditMode } = useEdit()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
@@ -29,7 +31,7 @@ export default function Navbar() {
     : 'bg-forge-navy shadow-lg'
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
+    <header className={`fixed ${isAdmin ? (isEditMode ? 'top-[60px]' : 'top-9') : 'top-0'} left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
 

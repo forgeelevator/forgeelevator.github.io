@@ -35,6 +35,12 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_ADMIN_USER: ${{ secrets.VITE_ADMIN_USER }}
+          VITE_ADMIN_PASS: ${{ secrets.VITE_ADMIN_PASS }}
+          VITE_GH_TOKEN: ${{ secrets.VITE_GH_TOKEN }}
+          VITE_GH_OWNER: ${{ secrets.VITE_GH_OWNER }}
+          VITE_GH_REPO: ${{ secrets.VITE_GH_REPO }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

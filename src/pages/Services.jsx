@@ -3,6 +3,8 @@ import {
   Wrench, Zap, Settings, ShieldCheck, Building2, Droplets,
   Phone, ArrowRight, CheckCircle2
 } from 'lucide-react'
+import { useEdit } from '../context/EditContext'
+import EditableField from '../components/EditableField'
 
 const services = [
   {
@@ -119,6 +121,8 @@ const services = [
 ]
 
 export default function Services() {
+  const { isAdmin } = useEdit()
+
   return (
     <div>
       {/* ── Hero ── */}
@@ -134,14 +138,28 @@ export default function Services() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="section-label mb-3">What We Offer</p>
+          <EditableField id="services-hero-eyebrow" label="Services › Hero › Eyebrow" as="p" className="section-label mb-3">
+            What We Offer
+          </EditableField>
           <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
-            Full-Spectrum<br />Elevator Services
+            <EditableField id="services-hero-h1-line1" label="Services › Hero › Headline — line 1" as="span">
+              Full-Spectrum
+            </EditableField>
+            <br />
+            <EditableField id="services-hero-h1-line2" label="Services › Hero › Headline — line 2" as="span">
+              Elevator Services
+            </EditableField>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
+          <EditableField
+            id="services-hero-body"
+            label="Services › Hero › Body paragraph"
+            as="p"
+            multiline
+            className="text-gray-300 text-lg max-w-2xl leading-relaxed"
+          >
             From routine maintenance contracts to full modernizations and 24/7 emergency response —
             Forge Elevator covers it all for East Tennessee property owners and managers.
-          </p>
+          </EditableField>
         </div>
         <div
           className="absolute bottom-0 left-0 right-0 h-12 bg-white"
@@ -149,8 +167,8 @@ export default function Services() {
         />
       </section>
 
-      {/* ── Quick nav anchors ── */}
-      <section className="bg-white border-b border-gray-200 sticky top-16 md:top-20 z-40">
+      {/* ── Quick nav anchors — offset accounts for EditBar when admin ── */}
+      <section className={`bg-white border-b border-gray-200 sticky ${isAdmin ? 'top-[100px] md:top-[116px]' : 'top-16 md:top-20'} z-40`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto gap-0 scrollbar-hide">
             {services.map(({ id, title }) => (
@@ -159,7 +177,9 @@ export default function Services() {
                 href={`#${id}`}
                 className="whitespace-nowrap text-xs font-medium text-gray-500 hover:text-forge-fire border-b-2 border-transparent hover:border-forge-fire py-4 px-4 transition-colors flex-shrink-0"
               >
-                {title}
+                <EditableField id={`services-${id}-nav-tab`} label={`Services › Nav Tab › ${title}`}>
+                  {title}
+                </EditableField>
               </a>
             ))}
           </div>
@@ -181,17 +201,46 @@ export default function Services() {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="inline-flex items-center gap-1.5 bg-forge-fire/10 text-forge-fire text-xs font-semibold px-3 py-1 rounded-full">
                     <Icon size={12} />
-                    {tag}
+                    <EditableField id={`services-${id}-tag`} label={`Services › ${title} › Tag badge`}>
+                      {tag}
+                    </EditableField>
                   </span>
                 </div>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-forge-navy mb-3">{title}</h2>
-                <p className="text-forge-fire font-semibold text-sm mb-4">{headline}</p>
-                <p className="text-gray-500 leading-relaxed mb-6">{desc}</p>
+                <EditableField
+                  id={`services-${id}-title`}
+                  label={`Services › ${title} › Title`}
+                  as="h2"
+                  className="font-display text-3xl md:text-4xl font-bold text-forge-navy mb-3"
+                >
+                  {title}
+                </EditableField>
+                <EditableField
+                  id={`services-${id}-headline`}
+                  label={`Services › ${title} › Headline (accent)`}
+                  as="p"
+                  className="text-forge-fire font-semibold text-sm mb-4"
+                >
+                  {headline}
+                </EditableField>
+                <EditableField
+                  id={`services-${id}-desc`}
+                  label={`Services › ${title} › Description paragraph`}
+                  as="p"
+                  multiline
+                  className="text-gray-500 leading-relaxed mb-6"
+                >
+                  {desc}
+                </EditableField>
                 <ul className="space-y-2.5">
-                  {bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-gray-700 text-sm">
+                  {bullets.map((b, bi) => (
+                    <li key={bi} className="flex items-start gap-3 text-gray-700 text-sm">
                       <CheckCircle2 size={16} className="text-forge-fire mt-0.5 flex-shrink-0" />
-                      {b}
+                      <EditableField
+                        id={`services-${id}-bullet-${bi + 1}`}
+                        label={`Services › ${title} › Bullet ${bi + 1}`}
+                      >
+                        {b}
+                      </EditableField>
                     </li>
                   ))}
                 </ul>
@@ -208,12 +257,28 @@ export default function Services() {
                   <div className="w-14 h-14 bg-forge-fire rounded-sm flex items-center justify-center mb-6">
                     <Icon size={26} className="text-white" />
                   </div>
-                  <h3 className="font-display text-2xl font-bold mb-3">{title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  <EditableField
+                    id={`services-${id}-card-title`}
+                    label={`Services › ${title} › Card title`}
+                    as="h3"
+                    className="font-display text-2xl font-bold mb-3"
+                  >
+                    {title}
+                  </EditableField>
+                  <EditableField
+                    id={`services-${id}-card-body`}
+                    label={`Services › ${title} › Card call-to-action text`}
+                    as="p"
+                    multiline
+                    className="text-gray-400 text-sm leading-relaxed mb-6"
+                  >
                     Need help now? Call our team for immediate assistance or to schedule a service call.
-                  </p>
+                  </EditableField>
                   <a href="tel:+18651234567" className="flex items-center gap-2 text-forge-fire font-semibold text-sm hover:underline">
-                    <Phone size={16} /> (865) 123-4567
+                    <Phone size={16} />
+                    <EditableField id={`services-${id}-card-phone`} label={`Services › ${title} › Card phone number`}>
+                      (865) 123-4567
+                    </EditableField>
                   </a>
                 </div>
               </div>
@@ -227,8 +292,22 @@ export default function Services() {
       <section className="bg-forge-fire py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="font-display text-3xl font-bold text-white">Don't See What You Need?</h2>
-            <p className="text-white/80 mt-1">Contact us — if it's elevator-related, we can help.</p>
+            <EditableField
+              id="services-cta-headline"
+              label="Services › Bottom CTA › Headline"
+              as="h2"
+              className="font-display text-3xl font-bold text-white"
+            >
+              Don't See What You Need?
+            </EditableField>
+            <EditableField
+              id="services-cta-body"
+              label="Services › Bottom CTA › Body"
+              as="p"
+              className="text-white/80 mt-1"
+            >
+              Contact us — if it's elevator-related, we can help.
+            </EditableField>
           </div>
           <Link to="/contact" className="btn-outline flex-shrink-0 text-base px-8 py-4">
             Get in Touch <ArrowRight size={18} />
