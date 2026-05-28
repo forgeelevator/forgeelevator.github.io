@@ -1,0 +1,10 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 27, 2026 at 10:08 PM
+Signed by: b
+
+CHANGES (1 field):
+
+[about-hero-body]
+Section: About › Hero › Body paragraph
+Original: Forge Elevator was founded with a single mission: give East Tennessee businesses and property owners an elevator service partner they can actually rely on — responsive, honest, and skilled.
+Requested: Forge Elevator was founded with a single mission: give East Tennessee businesses and property owners an elevator service paartner they can actually rely on — responsive, honest, and skilled.
