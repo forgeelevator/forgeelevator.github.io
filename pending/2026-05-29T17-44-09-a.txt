@@ -1,0 +1,12 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 29, 2026 at 1:44 PM
+Signed by: a
+
+CHANGES (0 fields):
+
+THEME:
+  Name: Custom
+  Dark Background: #0d1f35
+  Accent Color:    #000000
+  Accent Hover:    #c47a1e
+  Page Background: #f0f4f8
