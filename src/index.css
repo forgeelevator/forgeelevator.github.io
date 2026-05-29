@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default theme tokens — overridden at runtime by the theme picker (via localStorage) */
+:root {
+  --forge-navy-rgb:  13 31 53;
+  --forge-steel-rgb: 30 58 95;
+  --forge-mid-rgb:   44 82 130;
+  --forge-amber-rgb: 196 122 30;
+  --forge-fire-rgb:  232 144 10;
+  --forge-light-rgb: 240 244 248;
+  --forge-slate-rgb: 100 116 139;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

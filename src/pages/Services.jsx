@@ -5,6 +5,8 @@ import {
 } from 'lucide-react'
 import { useEdit } from '../context/EditContext'
 import EditableField from '../components/EditableField'
+import { useGlobal } from '../components/GlobalField'
+import { phoneToHref } from '../utils/globals'
 
 const services = [
   {
@@ -122,6 +124,7 @@ const services = [
 
 export default function Services() {
   const { isAdmin } = useEdit()
+  const phone = useGlobal('global-phone')
 
   return (
     <div>
@@ -130,7 +133,7 @@ export default function Services() {
         className="relative pt-32 pb-20 bg-forge-navy overflow-hidden"
         style={{
           backgroundImage: `
-            linear-gradient(to bottom right, rgba(13,31,53,0.95) 0%, rgba(30,58,95,0.88) 100%),
+            linear-gradient(to bottom right, rgb(var(--forge-navy-rgb) / 0.95) 0%, rgb(var(--forge-steel-rgb) / 0.88) 100%),
             url('https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=1400&q=80&fit=crop')
           `,
           backgroundSize: 'cover',
@@ -274,11 +277,9 @@ export default function Services() {
                   >
                     Need help now? Call our team for immediate assistance or to schedule a service call.
                   </EditableField>
-                  <a href="tel:+18651234567" className="flex items-center gap-2 text-forge-fire font-semibold text-sm hover:underline">
+                  <a href={phoneToHref(phone)} className="flex items-center gap-2 text-forge-fire font-semibold text-sm hover:underline">
                     <Phone size={16} />
-                    <EditableField id={`services-${id}-card-phone`} label={`Services › ${title} › Card phone number`}>
-                      (865) 123-4567
-                    </EditableField>
+                    {phone}
                   </a>
                 </div>
               </div>

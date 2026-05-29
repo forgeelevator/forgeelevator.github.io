@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, Edit2, Send, Trash2, X, PenLine, Loader2, CheckCircle2, AlertCircle, LogOut, RefreshCw } from 'lucide-react'
+import { ChevronDown, ChevronUp, Edit2, Send, Trash2, X, PenLine, Loader2, CheckCircle2, AlertCircle, LogOut, RefreshCw, Palette, Info } from 'lucide-react'
+import { HexColorPicker } from 'react-colorful'
 import { useEdit } from '../context/EditContext'
 import { submitToGitHub } from '../utils/submitToGitHub'
+import { THEMES, buildCustomTheme } from '../utils/theme'
+import SiteInfoPanel from './SiteInfoPanel'
 
 export default function EditBar() {
   const {
@@ -14,6 +17,8 @@ export default function EditBar() {
     serverPendingIds,
     refreshServerPending,
     logout,
+    theme,
+    setTheme,
   } = useEdit()
 
   const [summaryOpen, setSummaryOpen] = useState(false)
@@ -25,6 +30,26 @@ export default function EditBar() {
   const [submitError, setSubmitError] = useState(null)
   const [refreshing, setRefreshing] = useState(false)
 
+  // Theme picker state
+  const [themePanelOpen, setThemePanelOpen] = useState(false)
+  const [themeTab, setThemeTab] = useState('custom')
+  // Which of the 4 custom colors is currently active in the wheel
+  const [activeColorKey, setActiveColorKey] = useState('fire')
+  // Custom color values (what the wheel edits)
+  const [customColors, setCustomColors] = useState({
+    navy:  theme?.navy  ?? THEMES[0].navy,
+    fire:  theme?.fire  ?? THEMES[0].fire,
+    amber: theme?.amber ?? THEMES[0].amber,
+    light: theme?.light ?? THEMES[0].light,
+  })
+  // Whether the "Choose Starting" preset picker is open in custom tab
+  const [startingOpen, setStartingOpen] = useState(false)
+  // Controlled hex input value (may be mid-edit / partial)
+  const [hexInput, setHexInput] = useState(theme?.fire ?? THEMES[0].fire)
+
+  // Site Info panel state
+  const [siteInfoOpen, setSiteInfoOpen] = useState(false)
+
   async function handleRefresh() {
     setRefreshing(true)
     await refreshServerPending()
@@ -33,6 +58,7 @@ export default function EditBar() {
 
   function openSigning() {
     setSummaryOpen(false)
+    setThemePanelOpen(false)
     setSigning(true)
   }
 
@@ -60,7 +86,7 @@ export default function EditBar() {
       // Remember how many server-pending fields existed before this submit
       const prevSize = serverPendingIds.size
 
-      await submitToGitHub(pendingChanges, signerName.trim())
+      await submitToGitHub(pendingChanges, signerName.trim(), theme)
       discardAll()
       setSubmitting(false)
       setShowModal(true)   // open modal immediately — spinner shows while we wait
@@ -90,6 +116,7 @@ export default function EditBar() {
     : 'bg-forge-navy/95 text-gray-400 backdrop-blur-sm border-b border-white/10'
 
   return (
+    <>
     <div className={`fixed top-0 left-0 right-0 z-[100] text-xs shadow-md ${barBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center gap-3">
 
@@ -132,7 +159,7 @@ export default function EditBar() {
             {/* Submit */}
             <button
               onClick={openSigning}
-              disabled={!hasChanges}
+              disabled={!hasChanges && (theme?.id === THEMES[0].id || !theme?.id)}
               className="flex items-center gap-1.5 font-bold bg-white text-amber-600 px-3 py-1 rounded-full hover:bg-amber-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex-shrink-0 text-[11px]"
             >
               <Send size={11} /> Submit Changes
@@ -168,11 +195,12 @@ export default function EditBar() {
         )}
       </div>
 
-      {/* Legend strip — visible whenever in edit mode */}
+      {/* Legend / toolbar strip — visible whenever in edit mode */}
       {isEditMode && (
         <div className="border-t border-white/15 bg-black/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-6 flex items-center gap-5 text-[10px]">
-            <span className="flex items-center gap-1.5 opacity-60">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-8 flex items-center gap-5 text-[11px]">
+            {/* Status legend */}
+            <span className="flex items-center gap-1.5 opacity-50">
               <span className="inline-block w-2.5 h-2.5 rounded-sm ring-1 ring-sky-300" />
               Editable
             </span>
@@ -188,15 +216,208 @@ export default function EditBar() {
                 ? `${serverPendingIds.size} awaiting review`
                 : 'Awaiting review'}
             </span>
-            <button
-              onClick={handleRefresh}
-              disabled={refreshing}
-              className="ml-auto flex items-center gap-1 opacity-50 hover:opacity-100 disabled:opacity-30 transition-opacity"
-              title="Re-check submitted changes"
-            >
-              <RefreshCw size={10} className={refreshing ? 'animate-spin' : ''} />
-              {refreshing ? 'Checking…' : 'Refresh'}
-            </button>
+
+            {/* Right-side toolbar buttons */}
+            <div className="ml-auto flex items-center gap-0.5">
+              <button
+                onClick={() => { setSiteInfoOpen(true); setThemePanelOpen(false) }}
+                className="flex items-center gap-1.5 font-semibold px-3 py-1 rounded bg-white/15 opacity-70 hover:opacity-100 hover:bg-white/25 transition-all"
+                title="Edit site-wide info (phone, email, hours)"
+              >
+                <Info size={13} />
+                Edit Business Info
+              </button>
+
+              {/* Theme button + floating dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setThemePanelOpen((o) => !o)}
+                  className={`flex items-center gap-1.5 font-semibold px-3 py-1 rounded transition-all ${
+                    themePanelOpen
+                      ? 'bg-white/30 opacity-100'
+                      : 'bg-white/15 opacity-70 hover:opacity-100 hover:bg-white/25'
+                  }`}
+                  title="Change site theme"
+                >
+                  <Palette size={13} />
+                  Theme
+                </button>
+
+                {/* Floating theme picker dropdown */}
+                {themePanelOpen && (
+                  <div className="absolute top-full right-0 mt-1.5 z-[150] bg-slate-900 border border-white/15 rounded-lg shadow-2xl overflow-hidden text-white">
+                    {/* Tab bar */}
+                    <div className="flex items-center border-b border-white/10 px-1 pt-1">
+                      <button
+                        onClick={() => setThemeTab('presets')}
+                        className={`text-[10px] font-semibold px-3 py-1.5 border-b-2 transition-all -mb-px ${
+                          themeTab === 'presets'
+                            ? 'border-white/60 opacity-100'
+                            : 'border-transparent opacity-40 hover:opacity-70'
+                        }`}
+                      >
+                        Presets
+                      </button>
+                      <button
+                        onClick={() => setThemeTab('custom')}
+                        className={`text-[10px] font-semibold px-3 py-1.5 border-b-2 transition-all -mb-px ${
+                          themeTab === 'custom'
+                            ? 'border-white/60 opacity-100'
+                            : 'border-transparent opacity-40 hover:opacity-70'
+                        }`}
+                      >
+                        Custom
+                      </button>
+                      <button
+                        onClick={() => setThemePanelOpen(false)}
+                        className="ml-auto flex items-center opacity-35 hover:opacity-80 transition-opacity px-2 py-1"
+                        title="Close"
+                      >
+                        <X size={10} />
+                      </button>
+                    </div>
+
+                    {/* Presets tab */}
+                    {themeTab === 'presets' && (
+                      <div className="p-2 flex flex-col gap-0.5 w-44">
+                        {THEMES.map((t) => (
+                          <button
+                            key={t.id}
+                            onClick={() => setTheme(t)}
+                            title={t.name}
+                            className={`flex items-center gap-2 text-[11px] font-semibold px-2 py-1.5 rounded transition-all w-full text-left ${
+                              theme?.id === t.id
+                                ? 'ring-1 ring-white/70 bg-white/10 opacity-100'
+                                : 'opacity-55 hover:opacity-100 hover:bg-white/5'
+                            }`}
+                          >
+                            <span className="relative inline-flex w-5 h-5 rounded-sm overflow-hidden flex-shrink-0 ring-1 ring-white/20">
+                              <span className="flex-1" style={{ backgroundColor: t.navy }} />
+                              <span className="flex-1" style={{ backgroundColor: t.fire }} />
+                            </span>
+                            {t.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Custom tab — inline color wheel, stays open */}
+                    {themeTab === 'custom' && (() => {
+                      const COLOR_TARGETS = [
+                        { key: 'navy',  label: 'Dark BG' },
+                        { key: 'fire',  label: 'Accent'  },
+                        { key: 'amber', label: 'Hover'   },
+                        { key: 'light', label: 'Page BG' },
+                      ]
+                      function handleWheelChange(hex) {
+                        const next = { ...customColors, [activeColorKey]: hex }
+                        setCustomColors(next)
+                        setHexInput(hex)
+                        setTheme(buildCustomTheme(next.navy, next.fire, next.amber, next.light))
+                      }
+                      function handleHexInput(val) {
+                        setHexInput(val)
+                        if (/^#[0-9a-fA-F]{6}$/.test(val)) handleWheelChange(val)
+                      }
+                      function switchTarget(key) {
+                        setActiveColorKey(key)
+                        setHexInput(customColors[key])
+                      }
+                      return (
+                        <div className="p-3 flex gap-4 items-start">
+                          {/* Left: color wheel */}
+                          <div className="flex-shrink-0">
+                            <HexColorPicker
+                              color={customColors[activeColorKey]}
+                              onChange={handleWheelChange}
+                              style={{ width: '168px', height: '168px' }}
+                            />
+                            <div className="mt-2 flex items-center gap-1.5">
+                              <span
+                                className="w-4 h-4 rounded-sm ring-1 ring-white/25 flex-shrink-0"
+                                style={{ backgroundColor: customColors[activeColorKey] }}
+                              />
+                              <input
+                                type="text"
+                                value={hexInput}
+                                onChange={(e) => handleHexInput(e.target.value)}
+                                spellCheck={false}
+                                className="w-20 text-[11px] font-mono bg-black/30 border border-white/20 rounded px-2 py-0.5 text-white/90 outline-none focus:border-white/50 transition-colors"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Right: color target chips */}
+                          <div className="flex flex-col gap-1.5 pt-1">
+                            <p className="text-[10px] opacity-40 mb-0.5">Editing:</p>
+                            {COLOR_TARGETS.map(({ key, label }) => (
+                              <button
+                                key={key}
+                                onClick={() => switchTarget(key)}
+                                className={`flex items-center gap-2 text-[10px] font-semibold px-2 py-1 rounded transition-all text-left ${
+                                  activeColorKey === key
+                                    ? 'bg-white/15 ring-1 ring-white/50 opacity-100'
+                                    : 'opacity-50 hover:opacity-80 hover:bg-white/5'
+                                }`}
+                              >
+                                <span
+                                  className="w-4 h-4 rounded-sm ring-1 ring-white/25 flex-shrink-0"
+                                  style={{ backgroundColor: customColors[key] }}
+                                />
+                                {label}
+                              </button>
+                            ))}
+                            {/* Choose Starting preset dropdown */}
+                            <div className="relative mt-2">
+                              <button
+                                onClick={() => setStartingOpen(v => !v)}
+                                className="flex items-center gap-1.5 w-full text-[10px] font-semibold px-2 py-1.5 rounded bg-white/15 hover:bg-white/25 opacity-70 hover:opacity-100 transition-all text-left"
+                              >
+                                <span className="flex-1">Start from…</span>
+                                <ChevronDown size={10} className={`transition-transform ${startingOpen ? 'rotate-180' : ''}`} />
+                              </button>
+                              {startingOpen && (
+                                <div className="absolute bottom-full mb-1 left-0 right-0 bg-slate-900 border border-white/15 rounded-lg shadow-2xl overflow-hidden z-10">
+                                  {THEMES.map((t) => (
+                                    <button
+                                      key={t.id}
+                                      onClick={() => {
+                                        const next = { navy: t.navy, fire: t.fire, amber: t.amber, light: t.light }
+                                        setCustomColors(next)
+                                        setHexInput(next[activeColorKey])
+                                        setTheme(buildCustomTheme(next.navy, next.fire, next.amber, next.light))
+                                        setStartingOpen(false)
+                                      }}
+                                      className="flex items-center gap-2 w-full text-[10px] font-semibold px-2 py-1.5 hover:bg-white/10 transition-colors text-left"
+                                    >
+                                      <span className="relative inline-flex w-4 h-4 rounded-sm overflow-hidden flex-shrink-0 ring-1 ring-white/20">
+                                        <span className="flex-1" style={{ backgroundColor: t.navy }} />
+                                        <span className="flex-1" style={{ backgroundColor: t.fire }} />
+                                      </span>
+                                      {t.name}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })()}
+                  </div>
+                )}
+              </div>
+
+              <button
+                onClick={handleRefresh}
+                disabled={refreshing}
+                className="flex items-center gap-1.5 font-semibold px-3 py-1 rounded bg-white/15 opacity-70 hover:opacity-100 disabled:opacity-30 hover:bg-white/25 transition-all"
+                title="Re-check submitted changes"
+              >
+                <RefreshCw size={13} className={refreshing ? 'animate-spin' : ''} />
+                {refreshing ? 'Checking…' : 'Refresh'}
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -329,5 +550,9 @@ export default function EditBar() {
         </div>
       )}
     </div>
+
+    {/* Site Info modal — rendered outside the fixed bar so it's not clipped */}
+    {siteInfoOpen && <SiteInfoPanel onClose={() => setSiteInfoOpen(false)} />}
+  </>
   )
 }

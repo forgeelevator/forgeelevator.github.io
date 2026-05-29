@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Phone, Mail, MapPin, Clock, CheckCircle2, Send } from 'lucide-react'
 import EditableField from '../components/EditableField'
+import GlobalField, { useGlobal } from '../components/GlobalField'
+import { phoneToHref, emailToHref } from '../utils/globals'
 
 const SERVICE_TYPES = [
   'Preventive Maintenance',
@@ -31,6 +33,8 @@ const serviceAreas = [
 ]
 
 export default function Contact() {
+  const phone = useGlobal('global-phone')
+  const email = useGlobal('global-email')
   const [form, setForm] = useState({
     name: '',
     company: '',
@@ -86,7 +90,9 @@ export default function Contact() {
             </p>
             <p className="text-gray-500 text-sm mb-8">
               For immediate emergencies, please call us directly at{' '}
-              <a href="tel:+18651234567" className="text-forge-fire font-semibold">(865) 123-4567</a>.
+              <a href={phoneToHref(phone)} className="text-forge-fire font-semibold">
+                <GlobalField id="global-phone" />
+              </a>.
             </p>
             <button
               onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', service: '', urgency: '', message: '' }) }}
@@ -107,7 +113,7 @@ export default function Contact() {
         className="relative pt-32 pb-20 bg-forge-navy overflow-hidden"
         style={{
           backgroundImage: `
-            linear-gradient(to bottom right, rgba(13,31,53,0.96) 0%, rgba(30,58,95,0.88) 100%),
+            linear-gradient(to bottom right, rgb(var(--forge-navy-rgb) / 0.96) 0%, rgb(var(--forge-steel-rgb) / 0.88) 100%),
             url('https://images.unsplash.com/photo-1423592707957-3b212afa6733?w=1400&q=80&fit=crop')
           `,
           backgroundSize: 'cover',
@@ -170,10 +176,10 @@ export default function Contact() {
                 call us directly — don't wait for a form.
               </EditableField>
               <a
-                href="tel:+18651234567"
+                href={phoneToHref(phone)}
                 className="flex items-center gap-2 text-white font-bold text-lg hover:underline"
               >
-                <Phone size={20} /> (865) 123-4567
+                <Phone size={20} /> <GlobalField id="global-phone" />
               </a>
               <EditableField id="contact-emergency-hours" label="Contact › Emergency Callout › Hours note" as="p" className="text-xs text-white/60 mt-1">Available 24 hours, 7 days</EditableField>
             </div>
@@ -185,8 +191,8 @@ export default function Contact() {
                 <Phone size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
                   <EditableField
-                    id="contact-info-phone"
-                    label="Contact › Sidebar › Phone number (also update the href tel: link)"
+                    id="global-phone"
+                    label="Phone Number"
                     as="span"
                     className="hover:text-forge-fire transition-colors"
                   >
@@ -199,8 +205,8 @@ export default function Contact() {
                 <Mail size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
                   <EditableField
-                    id="contact-info-email"
-                    label="Contact › Sidebar › Email address (also update the href mailto: link)"
+                    id="global-email"
+                    label="Email Address"
                     as="span"
                     className="hover:text-forge-fire transition-colors"
                   >
@@ -212,7 +218,7 @@ export default function Contact() {
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <MapPin size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <EditableField id="contact-info-city" label="Contact › Sidebar › City / location">
+                  <EditableField id="global-service-area" label="Service Area">
                     Knoxville, Tennessee
                   </EditableField>
                   <EditableField id="contact-info-city-sub" label="Contact › Sidebar › City sublabel" as="span" className="block text-xs text-gray-400">Serving East Tennessee</EditableField>
@@ -221,7 +227,7 @@ export default function Contact() {
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <Clock size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <EditableField id="contact-info-hours" label="Contact › Sidebar › Business hours">
+                  <EditableField id="global-hours" label="Business Hours">
                     Mon–Fri: 7:00 AM – 5:00 PM
                   </EditableField>
                   <EditableField id="contact-info-hours-sub" label="Contact › Sidebar › Hours sublabel" as="span" className="block text-xs text-gray-400">Emergency service available 24/7</EditableField>

@@ -8,13 +8,13 @@ export default {
     extend: {
       colors: {
         forge: {
-          navy:    '#0d1f35',
-          steel:   '#1e3a5f',
-          mid:     '#2c5282',
-          amber:   '#c47a1e',
-          fire:    '#e8900a',
-          light:   '#f0f4f8',
-          slate:   '#64748b',
+          navy:  'rgb(var(--forge-navy-rgb) / <alpha-value>)',
+          steel: 'rgb(var(--forge-steel-rgb) / <alpha-value>)',
+          mid:   'rgb(var(--forge-mid-rgb) / <alpha-value>)',
+          amber: 'rgb(var(--forge-amber-rgb) / <alpha-value>)',
+          fire:  'rgb(var(--forge-fire-rgb) / <alpha-value>)',
+          light: 'rgb(var(--forge-light-rgb) / <alpha-value>)',
+          slate: 'rgb(var(--forge-slate-rgb) / <alpha-value>)',
         },
       },
       fontFamily: {

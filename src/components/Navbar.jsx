@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
 import { useEdit } from '../context/EditContext'
+import GlobalField, { useGlobal } from './GlobalField'
+import { phoneToHref } from '../utils/globals'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -16,6 +18,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const isHome = location.pathname === '/'
+  const phone = useGlobal('global-phone')
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -70,11 +73,11 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+18651234567"
+              href={phoneToHref(phone)}
               className="flex items-center gap-2 text-sm text-gray-300 hover:text-forge-fire transition-colors"
             >
               <Phone size={15} />
-              <span className="font-medium">(865) 123-4567</span>
+              <span className="font-medium"><GlobalField id="global-phone" /></span>
             </a>
             <Link to="/contact" className="btn-primary text-sm py-2 px-5">
               Request Service
@@ -111,11 +114,11 @@ export default function Navbar() {
               </NavLink>
             ))}
             <a
-              href="tel:+18651234567"
+              href={phoneToHref(phone)}
               className="mt-2 flex items-center gap-2 text-sm text-forge-fire font-semibold py-3 px-3"
             >
               <Phone size={16} />
-              (865) 123-4567 — 24/7 Emergency
+              <GlobalField id="global-phone" /> — 24/7 Emergency
             </a>
           </nav>
         </div>

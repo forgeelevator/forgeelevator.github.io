@@ -70,9 +70,9 @@ export default function Home() {
           backgroundImage: `
             linear-gradient(
               to bottom right,
-              rgba(13, 31, 53, 0.92) 0%,
-              rgba(30, 58, 95, 0.80) 60%,
-              rgba(13, 31, 53, 0.95) 100%
+              rgb(var(--forge-navy-rgb) / 0.92) 0%,
+              rgb(var(--forge-steel-rgb) / 0.80) 60%,
+              rgb(var(--forge-navy-rgb) / 0.95) 100%
             ),
             url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80&fit=crop')
           `,
@@ -300,7 +300,7 @@ export default function Home() {
       {/* ── Emergency CTA band ── */}
       <section
         className="py-20 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0d1f35 0%, #1e3a5f 100%)' }}
+        style={{ background: 'linear-gradient(135deg, rgb(var(--forge-navy-rgb)) 0%, rgb(var(--forge-steel-rgb)) 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <EditableField
@@ -341,7 +341,7 @@ export default function Home() {
       </section>
 
       {/* ── Compliance notice strip ── */}
-      <section className="bg-gray-50 border-t border-gray-200">
+      <section className="bg-forge-light border-t border-forge-navy/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
           <ShieldCheck size={40} className="text-forge-fire flex-shrink-0" />
           <div>

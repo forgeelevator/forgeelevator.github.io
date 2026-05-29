@@ -17,9 +17,10 @@ function toBase64(str) {
 /**
  * @param {Map<string, {label: string, original: string, current: string}>} pendingChanges
  * @param {string} signer
+ * @param {object|null} theme  — current active theme (null = default Forge theme)
  * @returns {Promise<{ path: string, url: string | null }>}
  */
-export async function submitToGitHub(pendingChanges, signer) {
+export async function submitToGitHub(pendingChanges, signer, theme = null) {
   if (!TOKEN || !OWNER || !REPO) {
     throw new Error('GitHub submit is not configured. Set VITE_GH_TOKEN, VITE_GH_OWNER, and VITE_GH_REPO.')
   }
@@ -46,6 +47,17 @@ export async function submitToGitHub(pendingChanges, signer) {
     lines.push(`Section: ${label}`)
     lines.push(`Original: ${original}`)
     lines.push(`Requested: ${current}`)
+    lines.push('')
+  }
+
+  // Include active theme if it differs from the default
+  if (theme && theme.id !== 'forge') {
+    lines.push('THEME:')
+    lines.push(`  Name: ${theme.id === 'custom' ? 'Custom' : theme.name}`)
+    lines.push(`  Dark Background: ${theme.navy}`)
+    lines.push(`  Accent Color:    ${theme.fire}`)
+    lines.push(`  Accent Hover:    ${theme.amber}`)
+    lines.push(`  Page Background: ${theme.light}`)
     lines.push('')
   }
 

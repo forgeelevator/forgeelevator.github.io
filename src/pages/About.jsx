@@ -57,7 +57,7 @@ export default function About() {
         className="relative pt-32 pb-20 bg-forge-navy overflow-hidden"
         style={{
           backgroundImage: `
-            linear-gradient(to bottom right, rgba(13,31,53,0.96) 0%, rgba(30,58,95,0.85) 100%),
+            linear-gradient(to bottom right, rgb(var(--forge-navy-rgb) / 0.96) 0%, rgb(var(--forge-steel-rgb) / 0.85) 100%),
             url('https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=1400&q=80&fit=crop')
           `,
           backgroundSize: 'cover',

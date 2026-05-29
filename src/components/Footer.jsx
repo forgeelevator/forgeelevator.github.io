@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import GlobalField, { useGlobal } from './GlobalField'
+import { phoneToHref, emailToHref } from '../utils/globals'
 
 const services = [
   'Preventive Maintenance',
@@ -12,6 +14,10 @@ const services = [
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const phone = useGlobal('global-phone')
+  const email = useGlobal('global-email')
+  const serviceArea = useGlobal('global-service-area')
+  const hours = useGlobal('global-hours')
 
   return (
     <footer className="bg-forge-navy text-gray-300">
@@ -22,10 +28,10 @@ export default function Footer() {
             🔧 <strong>24/7 Emergency Service Available</strong> — We're always on call.
           </span>
           <a
-            href="tel:+18651234567"
+            href={phoneToHref(phone)}
             className="text-white font-bold text-sm underline underline-offset-2 hover:no-underline"
           >
-            (865) 123-4567
+            <GlobalField id="global-phone" />
           </a>
         </div>
       </div>
@@ -95,24 +101,26 @@ export default function Footer() {
             <li className="flex items-start gap-3 text-sm text-gray-400">
               <Phone size={15} className="mt-0.5 flex-shrink-0 text-forge-fire" />
               <div>
-                <a href="tel:+18651234567" className="hover:text-white transition-colors">(865) 123-4567</a>
+                <a href={phoneToHref(phone)} className="hover:text-white transition-colors">
+                  <GlobalField id="global-phone" />
+                </a>
                 <span className="block text-xs text-gray-500">24/7 Emergency Line</span>
               </div>
             </li>
             <li className="flex items-start gap-3 text-sm text-gray-400">
               <Mail size={15} className="mt-0.5 flex-shrink-0 text-forge-fire" />
-              <a href="mailto:service@forgeelevator.com" className="hover:text-white transition-colors">
-                service@forgeelevator.com
+              <a href={emailToHref(email)} className="hover:text-white transition-colors">
+                <GlobalField id="global-email" />
               </a>
             </li>
             <li className="flex items-start gap-3 text-sm text-gray-400">
               <MapPin size={15} className="mt-0.5 flex-shrink-0 text-forge-fire" />
-              <span>Serving East Tennessee<br />Knoxville & Surrounding Areas</span>
+              <span>Serving East Tennessee<br /><GlobalField id="global-service-area" /></span>
             </li>
             <li className="flex items-start gap-3 text-sm text-gray-400">
               <Clock size={15} className="mt-0.5 flex-shrink-0 text-forge-fire" />
               <div>
-                <span className="block">Mon–Fri: 7:00 AM – 5:00 PM</span>
+                <GlobalField id="global-hours" className="block" />
                 <span className="text-xs text-gray-500">Emergency service available 24/7</span>
               </div>
             </li>

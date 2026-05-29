@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { fetchPendingIds } from '../utils/fetchPendingIds'
+import { applyTheme, loadSavedTheme, saveTheme, THEMES } from '../utils/theme'
 
 const EditContext = createContext(null)
 
@@ -31,6 +32,15 @@ export function EditProvider({ children }) {
   const [pendingChanges, setPendingChanges] = useState(loadDraft)
   // Set<id> — fields that have been submitted to GitHub and are awaiting implementation
   const [serverPendingIds, setServerPendingIds] = useState(new Set())
+
+  // Active theme — persisted in localStorage so it sticks across sessions / page loads
+  const [theme, setThemeState] = useState(() => loadSavedTheme() ?? THEMES[0])
+
+  const setTheme = useCallback((colors) => {
+    applyTheme(colors)
+    saveTheme(colors)
+    setThemeState(colors)
+  }, [])
 
   const hasChanges = pendingChanges.size > 0
 
@@ -121,6 +131,8 @@ export function EditProvider({ children }) {
         serverPendingIds,
         refreshServerPending,
         logout,
+        theme,
+        setTheme,
       }}
     >
       {children}
