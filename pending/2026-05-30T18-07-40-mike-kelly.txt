@@ -1,0 +1,20 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 30, 2026, 2:07 PM
+Signed by: mike kelly
+
+CHANGES (3 fields):
+
+[home-why-contracts]
+Section: Home › Why Forge › Bullet — "Comprehensive maintenance contra…"
+Original: Comprehensive maintenance contracts
+Requested: Simple contracts tailored to customer needs!
+
+[home-emergency-body]
+Section: Home › Emergency CTA › Body paragraph
+Original: Passenger entrapments and equipment failures don't wait for business hours. Our licensed technicians are available 24 hours a day, 7 days a week.
+Requested: When your elevator is down, excuses dont get it running again. Our team is avaailiable 24/7 to deliever the responsive service and support your building deserves.
+
+[home-compliance-title]
+Section: Home › Compliance Strip › Title
+Original: Fully Licensed, Bonded & Insured
+Requested: Fully Licensed & Insured
