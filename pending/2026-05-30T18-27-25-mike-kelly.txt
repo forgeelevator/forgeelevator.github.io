@@ -1,0 +1,36 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 30, 2026, 2:27 PM
+Signed by: mike kelly
+
+CHANGES (5 fields):
+
+[services-new-construction-title]
+Section: Services › New Construction › Title
+Original: New Construction
+Requested: Residential 
+
+[services-new-construction-card-title]
+Section: Services › New Construction › Card title
+Original: New Construction
+Requested: Residential 
+
+[services-new-construction-bullet-4]
+Section: Services › New Construction › Bullet 4
+Original: Installation oversight and quality control
+Requested: Code compliance assistance
+
+[services-new-construction-bullet-5]
+Section: Services › New Construction › Bullet 5
+Original: Final acceptance testing and commissioning
+Requested: modernization & technologoy upgrades
+
+[services-modernization-desc]
+Section: Services › Modernization & Upgrades › Description paragraph
+Original: Elevator systems from the 1980s and 1990s are still common across East Tennessee's commercial building stock. Modernization replaces worn-out controls, motors, and drives with state-of-the-art components — improving reliability, energy efficiency, ride quality, and compliance.
+Requested: Modernizations done
+right. We utilize non-proprietary, non-obsolescent solutions designed for
+long-term reliability and serviceability. In an industry where newer equipment
+is often engineered toward obsolescence, we focus on upgrades that keep your
+elevators running longer, reduce future costs, and protect your investment. By
+avoiding proprietary systems, any qualified elevator service provider can
+maintain your equpiment-keeping you in control, not the manufacturer.
