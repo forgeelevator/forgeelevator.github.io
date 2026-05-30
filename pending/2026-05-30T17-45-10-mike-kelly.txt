@@ -1,0 +1,60 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 30, 2026, 1:45 PM
+Signed by: mike kelly
+
+CHANGES (11 fields):
+
+[home-service-maintenance-desc]
+Section: Home › Services Grid › Preventive Maintenance — description
+Original: Scheduled inspections and lubrication keep your equipment running safely and reduce costly downtime.
+Requested: Is the foundation of Forge Elevator. We bring back old-school maintennace princables back to the industry-finding and fixing problems before they become failures. 
+
+[home-service-emergency-desc]
+Section: Home › Services Grid › Emergency Repair — description
+Original: 24/7 rapid-response service. Our technicians are on call around the clock for entrapments and critical failures.
+Requested: 24/7 rapid-response service. Our technicians are on call around the clock for entrapments and critical failures. We pick up!
+
+[home-service-emergency-title]
+Section: Home › Services Grid › Emergency Repair — title
+Original: Emergency Repair
+Requested: Emergency Service
+
+[home-service-new-construction-desc]
+Section: Home › Services Grid › New Construction — description
+Original: Coordination with general contractors and architects from layout planning through final commissioning.
+Requested: Expert Residentail elevator service including-install, maintain, repair and modernization tailored to your home and lifestyle. 
+
+[home-service-modernization-desc]
+Section: Home › Services Grid › Modernization — description
+Original: Update aging equipment with modern controls, drives, and interiors — extending service life and improving efficiency.
+Requested: Modernizations done right. We focus on the upgrades that matter most, delivering reliable, non-proprietary solutions that improve performance, increase reliability, and maximize long-term value.
+
+[home-service-new-construction-title]
+Section: Home › Services Grid › New Construction — title
+Original: New Construction
+Requested: Residential
+
+[home-service-hydraulic-title]
+Section: Home › Services Grid › Hydraulic Systems — title
+Original: Hydraulic Systems
+Requested: Repairs
+
+[home-service-modernization-title]
+Section: Home › Services Grid › Modernization — title
+Original: Modernization
+Requested: Modernization- Traction and Hydraulic
+
+[home-service-hydraulic-desc]
+Section: Home › Services Grid › Hydraulic Systems — description
+Original: Full service on hydraulic elevators including fluid management, cylinder repair, and valve adjustment.
+Requested: We don't believe in temporary fixes. Our repair soultions address the root casuse to restore performace, reliablity , and peace of mind.
+
+[home-why-licensed]
+Section: Home › Why Forge › Bullet — "Factory-trained, licensed elevat…"
+Original: Factory-trained, licensed elevator mechanics
+Requested: IUEC-trained, licensed elevator mechanics
+
+[home-why-fast-response]
+Section: Home › Why Forge › Bullet — "Fast response times — we're wher…"
+Original: Fast response times — we're where you need us
+Requested: Fast response times — we pick up!
