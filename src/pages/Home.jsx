@@ -92,7 +92,7 @@ export default function Home() {
             </EditableField>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
               <EditableField id="home-hero-h1-line1" label="Home › Hero › Headline — line 1" as="span">
-                Keeping East Tennessee
+                WE'RE NOT THE BIGGEST.
               </EditableField>
               <EditableField
                 id="home-hero-h1-line2"
@@ -100,7 +100,7 @@ export default function Home() {
                 as="span"
                 className="block text-forge-fire"
               >
-                Moving Safely.
+                JUST THE ONES WHO ANSWER!
               </EditableField>
             </h1>
             <EditableField

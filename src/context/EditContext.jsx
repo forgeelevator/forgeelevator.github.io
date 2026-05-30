@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { fetchPendingIds } from '../utils/fetchPendingIds'
+import { fetchCompletedIds } from '../utils/fetchCompletedIds'
 import { applyTheme, loadSavedTheme, saveTheme, THEMES } from '../utils/theme'
 
 const EditContext = createContext(null)
@@ -32,13 +33,20 @@ export function EditProvider({ children }) {
   const [pendingChanges, setPendingChanges] = useState(loadDraft)
   // Set<id> — fields that have been submitted to GitHub and are awaiting implementation
   const [serverPendingIds, setServerPendingIds] = useState(new Set())
+  // Set<id> — fields whose submissions have been applied to the site
+  const [completedIds, setCompletedIds] = useState(new Set())
 
-  // Active theme — persisted in localStorage so it sticks across sessions / page loads
-  const [theme, setThemeState] = useState(() => loadSavedTheme() ?? THEMES[0])
+  // Active theme — site theme lives in index.css; localStorage is only used so the
+  // picker UI remembers the last submitted/previewed theme within a session.
+  // On mount, clear any stale localStorage override (flash script is gone, so it
+  // no longer affects CSS vars, but clean up anyway).
+  const [theme, setThemeState] = useState(() => {
+    localStorage.removeItem('forge_theme')
+    return THEMES[0]
+  })
 
   const setTheme = useCallback((colors) => {
     applyTheme(colors)
-    saveTheme(colors)
     setThemeState(colors)
   }, [])
 
@@ -72,10 +80,22 @@ export function EditProvider({ children }) {
     }
   }, [])
 
-  // Fetch server-pending IDs whenever admin logs in (or on refresh when already admin)
+  const refreshCompleted = useCallback(async () => {
+    try {
+      const ids = await fetchCompletedIds()
+      setCompletedIds(ids)
+    } catch {
+      // non-critical — silently ignore
+    }
+  }, [])
+
+  // Fetch server-pending + completed IDs whenever admin logs in (or on refresh when already admin)
   useEffect(() => {
-    if (isAdmin) refreshServerPending()
-  }, [isAdmin, refreshServerPending])
+    if (isAdmin) {
+      refreshServerPending()
+      refreshCompleted()
+    }
+  }, [isAdmin, refreshServerPending, refreshCompleted])
 
   const setChange = useCallback((id, label, original, current) => {
     setPendingChanges((prev) => {
@@ -109,6 +129,7 @@ export function EditProvider({ children }) {
     setIsEditMode(false)
     setIsAdmin(false)
     setServerPendingIds(new Set())
+    setCompletedIds(new Set())
   }, [])
 
   const toggleEditMode = useCallback(() => {
@@ -130,6 +151,7 @@ export function EditProvider({ children }) {
         discardAll,
         serverPendingIds,
         refreshServerPending,
+        completedIds,
         logout,
         theme,
         setTheme,

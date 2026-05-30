@@ -16,6 +16,7 @@ export default function EditBar() {
     discardAll,
     serverPendingIds,
     refreshServerPending,
+    completedIds,
     logout,
     theme,
     setTheme,
@@ -215,6 +216,12 @@ export default function EditBar() {
               {serverPendingIds.size > 0
                 ? `${serverPendingIds.size} awaiting review`
                 : 'Awaiting review'}
+            </span>
+            <span className="flex items-center gap-1.5 opacity-80">
+              <span className="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500/70 ring-2 ring-emerald-500" />
+              {completedIds.size > 0
+                ? `${completedIds.size} completed`
+                : 'Completed'}
             </span>
 
             {/* Right-side toolbar buttons */}

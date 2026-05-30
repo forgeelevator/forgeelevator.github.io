@@ -21,7 +21,7 @@ export default function EditableField({
   className = '',
   ...rest
 }) {
-  const { isEditMode, revision, pendingChanges, serverPendingIds, setChange, removeChange } = useEdit()
+  const { isEditMode, revision, pendingChanges, serverPendingIds, completedIds, setChange, removeChange } = useEdit()
 
   // Normalise whitespace so template-literal line breaks don't create false dirty states
   const original = String(children ?? '').replace(/\s+/g, ' ').trim()
@@ -31,6 +31,7 @@ export default function EditableField({
   const elRef = useRef(null)
   const isDirty = current !== original
   const isServerPending = serverPendingIds.has(id)
+  const isCompleted = !isServerPending && completedIds.has(id)
 
   // Keep context map in sync
   useEffect(() => {
@@ -74,7 +75,9 @@ export default function EditableField({
       ? 'outline outline-2 outline-amber-400'
       : isServerPending
         ? 'outline outline-2 outline-violet-500'
-        : 'outline outline-1 outline-sky-300 hover:outline-2 hover:outline-sky-400',
+        : isCompleted
+          ? 'outline outline-2 outline-emerald-500'
+          : 'outline outline-1 outline-sky-300 hover:outline-2 hover:outline-sky-400',
     'rounded-sm cursor-text transition-[outline-color,background-color] focus:outline-2 focus:outline-sky-500',
   ].join(' ')
 
