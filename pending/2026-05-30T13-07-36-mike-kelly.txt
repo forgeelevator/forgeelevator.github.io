@@ -1,0 +1,22 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 30, 2026, 9:07 AM
+Signed by: MIKE KELLY
+
+CHANGES (2 fields):
+
+[home-hero-h1-line1]
+Section: Home › Hero › Headline — line 1
+Original: Keeping East Tennessee
+Requested: WE'RE NOT THE BIGGEST.
+
+[home-hero-h1-line2]
+Section: Home › Hero › Headline — line 2 (accent)
+Original: Moving Safely.
+Requested: JUST THE ONES WHO ANSWER!
+
+THEME:
+  Name: Custom
+  Dark Background: #000000
+  Accent Color:    #09e81a
+  Accent Hover:    #c47a1e
+  Page Background: #f0f4f7
