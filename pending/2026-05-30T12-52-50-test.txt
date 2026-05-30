@@ -1,0 +1,17 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 30, 2026 at 8:52 AM
+Signed by: test
+
+CHANGES (1 field):
+
+[services-hero-eyebrow]
+Section: Services › Hero › Eyebrow
+Original: What We Offer
+Requested: What We Offerm
+
+THEME:
+  Name: Custom
+  Dark Background: #0d1f35
+  Accent Color:    #aa7f3f
+  Accent Hover:    #d417e6
+  Page Background: #2b5178
