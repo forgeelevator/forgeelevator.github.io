@@ -3,25 +3,25 @@ export const GLOBALS = [
   {
     id:          'global-phone',
     label:       'Phone Number',
-    original:    '(865) 123-4567',
+    original:    '(865) 803-0633',
     placeholder: '(555) 000-0000',
   },
   {
     id:          'global-email',
     label:       'Email Address',
-    original:    'service@forgeelevator.com',
+    original:    'sales@forgeelevator.com',
     placeholder: 'hello@example.com',
   },
   {
     id:          'global-hours',
     label:       'Business Hours',
-    original:    'Mon–Fri: 7:00 AM – 5:00 PM',
+    original:    'Mon–Fri: 8:00 AM – 5:00 PM',
     placeholder: 'Mon–Fri: 9am–5pm',
   },
   {
     id:          'global-service-area',
     label:       'Service Area',
-    original:    'Knoxville & Surrounding Areas',
+    original:    'Knoxville, Chattanooga, Tri-Cities and surrounding areas.',
     placeholder: 'City & Region',
   },
 ]

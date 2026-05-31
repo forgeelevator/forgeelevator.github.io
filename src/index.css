@@ -17,11 +17,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-white text-gray-900 antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
   }
 }
 
@@ -37,11 +39,11 @@
   }
 
   .section-label {
-    @apply text-forge-fire font-semibold text-sm uppercase tracking-widest;
+    @apply text-forge-fire font-semibold text-xs sm:text-sm uppercase tracking-wider;
   }
 
   .section-title {
-    @apply font-display text-4xl md:text-5xl font-bold text-forge-navy leading-tight;
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-bold text-forge-navy leading-tight;
   }
 
   .card {

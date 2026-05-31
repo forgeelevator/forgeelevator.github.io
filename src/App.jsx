@@ -24,8 +24,8 @@ function AppLayout() {
   const { isAdmin, isEditMode } = useEdit()
   // Offset <main> by the admin bar height so it never sits under the fixed bar:
   //   36px  (h-9)       — admin preview mode (bar only)
-  //   60px  (h-9 + h-6) — edit mode (bar + legend strip)
-  const mainOffset = isAdmin ? (isEditMode ? 'pt-[60px]' : 'pt-9') : ''
+  //   68px  (h-9 + h-8) — edit mode (bar + legend strip)
+  const mainOffset = isAdmin ? (isEditMode ? 'pt-[68px]' : 'pt-9') : ''
 
   return (
     <>

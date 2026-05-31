@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, Edit2, Send, Trash2, X, PenLine, Loader2, CheckCircle2, AlertCircle, LogOut, RefreshCw, Palette, Info } from 'lucide-react'
+import { ChevronDown, ChevronUp, Edit2, Send, Trash2, X, PenLine, Loader2, CheckCircle2, AlertCircle, LogOut, RefreshCw, Palette, Info, Lightbulb } from 'lucide-react'
 import { HexColorPicker } from 'react-colorful'
 import { useEdit } from '../context/EditContext'
 import { submitToGitHub } from '../utils/submitToGitHub'
 import { THEMES, buildCustomTheme } from '../utils/theme'
 import SiteInfoPanel from './SiteInfoPanel'
+import SuggestionReviewer from './SuggestionReviewer'
+import { SUGGESTIONS } from '../utils/suggestions'
 
 export default function EditBar() {
   const {
@@ -50,6 +52,7 @@ export default function EditBar() {
 
   // Site Info panel state
   const [siteInfoOpen, setSiteInfoOpen] = useState(false)
+  const [reviewOpen, setReviewOpen] = useState(false)
 
   async function handleRefresh() {
     setRefreshing(true)
@@ -125,12 +128,12 @@ export default function EditBar() {
         <span className="font-bold uppercase tracking-widest text-[10px] flex-shrink-0">
           {isEditMode ? 'Edit Mode' : 'Admin Preview'}
         </span>
-        <span className="opacity-25 flex-shrink-0">|</span>
+        <span className="opacity-25 flex-shrink-0 hidden sm:inline">|</span>
 
         {isEditMode ? (
           <>
             {/* Status text */}
-            <span className="flex-1 font-medium opacity-80 truncate">
+            <span className="flex-1 font-medium opacity-80 truncate hidden sm:block">
               {hasChanges
                 ? `${pendingChanges.size} unsaved change${pendingChanges.size === 1 ? '' : 's'} — navigate freely, all changes persist`
                 : 'Click any highlighted field to edit · Navigate freely between pages'}
@@ -177,20 +180,23 @@ export default function EditBar() {
           </>
         ) : (
           <>
-            <span className="flex-1 opacity-40">Viewing as admin</span>
+            <span className="flex-1 opacity-40 hidden sm:block">Viewing as admin</span>
             <button
               onClick={toggleEditMode}
               className="flex items-center gap-1.5 font-semibold text-forge-fire hover:text-white transition-colors flex-shrink-0"
             >
-              <Edit2 size={12} /> Enter Edit Mode
+              <Edit2 size={12} />
+              <span className="hidden sm:inline">Enter Edit Mode</span>
+              <span className="sm:hidden">Edit</span>
             </button>
-            <span className="opacity-25 flex-shrink-0">|</span>
+            <span className="opacity-25 flex-shrink-0 hidden sm:inline">|</span>
             <button
               onClick={logout}
               className="flex items-center gap-1 opacity-50 hover:opacity-100 transition-opacity flex-shrink-0"
               title="Log out"
             >
-              <LogOut size={12} /> Log out
+              <LogOut size={12} />
+              <span className="hidden sm:inline">Log out</span>
             </button>
           </>
         )}
@@ -234,6 +240,21 @@ export default function EditBar() {
                 <Info size={13} />
                 Edit Business Info
               </button>
+
+              {SUGGESTIONS.length > 0 && (
+                <button
+                  onClick={() => setReviewOpen((v) => !v)}
+                  className={`flex items-center gap-1.5 font-semibold px-3 py-1 rounded transition-all ${
+                    reviewOpen
+                      ? 'bg-white/30 opacity-100'
+                      : 'bg-white/15 opacity-70 hover:opacity-100 hover:bg-white/25'
+                  }`}
+                  title="Review styling suggestions"
+                >
+                  <Lightbulb size={13} />
+                  {SUGGESTIONS.length} Suggestion{SUGGESTIONS.length !== 1 ? 's' : ''}
+                </button>
+              )}
 
               {/* Theme button + floating dropdown */}
               <div className="relative">
@@ -427,6 +448,11 @@ export default function EditBar() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Suggestion reviewer panel */}
+      {isEditMode && reviewOpen && (
+        <SuggestionReviewer onClose={() => setReviewOpen(false)} />
       )}
 
       {/* Signing panel — shown after clicking Submit Changes */}

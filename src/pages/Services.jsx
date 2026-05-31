@@ -51,9 +51,11 @@ const services = [
     icon: Settings,
     title: 'Modernization & Upgrades',
     headline: 'New Life for Aging Equipment',
-    desc: `Elevator systems from the 1980s and 1990s are still common across East Tennessee's commercial
-    building stock. Modernization replaces worn-out controls, motors, and drives with state-of-the-art
-    components — improving reliability, energy efficiency, ride quality, and compliance.`,
+    desc: `Modernizations done right. We utilize non-proprietary, non-obsolescent solutions designed for
+    long-term reliability and serviceability. In an industry where newer equipment is often engineered
+    toward obsolescence, we focus on upgrades that keep your elevators running longer, reduce future
+    costs, and protect your investment. By avoiding proprietary systems, any qualified elevator service
+    provider can maintain your equipment — keeping you in control, not the manufacturer.`,
     bullets: [
       'Control system replacement and reprogramming',
       'Drive unit modernization (MG set to variable-voltage variable-frequency)',
@@ -86,7 +88,7 @@ const services = [
   {
     id: 'new-construction',
     icon: Building2,
-    title: 'New Construction',
+    title: 'Residential',
     headline: 'Right-Sized Vertical Transportation from Day One',
     desc: `Getting vertical transportation right during construction saves you time, money, and headaches
     for decades to come. Forge Elevator partners with architects, general contractors, and developers
@@ -95,8 +97,8 @@ const services = [
       'Consultation during design and specification phases',
       'Equipment selection and vendor coordination',
       'Hoistway layout guidance',
-      'Installation oversight and quality control',
-      'Final acceptance testing and commissioning',
+      'Code compliance assistance',
+      'Modernization & technology upgrades',
       'Owner training and handoff',
     ],
     tag: 'New Builds Welcome',
@@ -144,7 +146,7 @@ export default function Services() {
           <EditableField id="services-hero-eyebrow" label="Services › Hero › Eyebrow" as="p" className="section-label mb-3">
             What We Offer
           </EditableField>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
             <EditableField id="services-hero-h1-line1" label="Services › Hero › Headline — line 1" as="span">
               Full-Spectrum
             </EditableField>

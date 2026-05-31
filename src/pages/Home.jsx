@@ -10,19 +10,19 @@ const services = [
     id: 'maintenance',
     icon: Wrench,
     title: 'Preventive Maintenance',
-    desc: 'Scheduled inspections and lubrication keep your equipment running safely and reduce costly downtime.',
+    desc: 'Is the foundation of Forge Elevator. We bring back old-school maintenance principles back to the industry — finding and fixing problems before they become failures.',
   },
   {
     id: 'emergency',
     icon: Zap,
-    title: 'Emergency Repair',
-    desc: '24/7 rapid-response service. Our technicians are on call around the clock for entrapments and critical failures.',
+    title: 'Emergency Service',
+    desc: '24/7 rapid-response service. Our technicians are on call around the clock for entrapments and critical failures. We pick up!',
   },
   {
     id: 'modernization',
     icon: Settings,
-    title: 'Modernization',
-    desc: 'Update aging equipment with modern controls, drives, and interiors — extending service life and improving efficiency.',
+    title: 'Modernization- Traction and Hydraulic',
+    desc: 'Modernizations done right. We focus on the upgrades that matter most, delivering reliable, non-proprietary solutions that improve performance, increase reliability, and maximize long-term value.',
   },
   {
     id: 'inspections',
@@ -33,30 +33,30 @@ const services = [
   {
     id: 'new-construction',
     icon: Building2,
-    title: 'New Construction',
-    desc: 'Coordination with general contractors and architects from layout planning through final commissioning.',
+    title: 'Residential',
+    desc: 'Expert Residential elevator service including install, maintain, repair and modernization tailored to your home and lifestyle.',
   },
   {
     id: 'hydraulic',
     icon: Award,
-    title: 'Hydraulic Systems',
-    desc: 'Full service on hydraulic elevators including fluid management, cylinder repair, and valve adjustment.',
+    title: 'Repairs',
+    desc: "We don't believe in temporary fixes. Our repair solutions address the root cause to restore performance, reliability, and peace of mind.",
   },
 ]
 
 const stats = [
   { id: 'emergency-response', value: '24/7',    label: 'Emergency Response' },
-  { id: 'experience',         value: '10+',     label: 'Years of Experience' },
+  { id: 'experience',         value: '50+',     label: 'Years of Experience' },
   { id: 'insured',            value: '100%',    label: 'Licensed & Insured' },
   { id: 'service-area',       value: 'East TN', label: 'Service Area' },
 ]
 
 const why = [
   { id: 'locally-owned', text: 'Locally owned and operated in East Tennessee' },
-  { id: 'licensed',      text: 'Factory-trained, licensed elevator mechanics' },
-  { id: 'fast-response', text: "Fast response times — we're where you need us" },
+  { id: 'licensed',      text: 'IUEC-trained, licensed elevator mechanics' },
+  { id: 'fast-response', text: 'Fast response times — we pick up!' },
   { id: 'pricing',       text: 'Transparent pricing with no hidden fees' },
-  { id: 'contracts',     text: 'Comprehensive maintenance contracts' },
+  { id: 'contracts',     text: 'Simple contracts tailored to customer needs!' },
   { id: 'all-types',     text: 'All elevator types: traction, hydraulic, commercial, residential' },
 ]
 
@@ -90,7 +90,7 @@ export default function Home() {
             >
               East Tennessee's Elevator Specialists
             </EditableField>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
               <EditableField id="home-hero-h1-line1" label="Home › Hero › Headline — line 1" as="span">
                 WE'RE NOT THE BIGGEST.
               </EditableField>
@@ -118,8 +118,8 @@ export default function Home() {
               <Link to="/contact" className="btn-primary text-base px-8 py-4">
                 Request Service <ArrowRight size={18} />
               </Link>
-              <a href="tel:+18651234567" className="btn-outline text-base px-8 py-4">
-                <Phone size={18} /> (865) 123-4567
+              <a href="tel:+18658030633" className="btn-outline text-base px-8 py-4">
+                <Phone size={18} /> (865) 803-0633
               </a>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
             {stats.map(({ id, value, label }) => (
-              <div key={id} className="py-10 px-6 text-center">
+              <div key={id} className="py-6 px-4 sm:py-10 sm:px-6 text-center">
                 <EditableField
                   id={`home-stat-${id}-value`}
                   label={`Home › Stats › ${label} — value`}
@@ -315,7 +315,7 @@ export default function Home() {
             id="home-emergency-headline"
             label="Home › Emergency CTA › Headline"
             as="h2"
-            className="font-display text-4xl md:text-5xl font-bold text-white mb-4"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
           >
             Elevator Down? We Respond Fast.
           </EditableField>
@@ -326,12 +326,12 @@ export default function Home() {
             multiline
             className="text-gray-300 mb-8 max-w-lg mx-auto"
           >
-            Passenger entrapments and equipment failures don't wait for business hours.
-            Our licensed technicians are available 24 hours a day, 7 days a week.
+            Passenger entrapments and equipment failures can't wait for business hours.
+            When your elevator is down, excuses don't get it running again. Our team is available 24/7 to deliver the responsive service and support your building deserves.
           </EditableField>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+18651234567" className="btn-primary text-lg px-10 py-4">
-              <Phone size={20} /> Call Now: (865) 123-4567
+            <a href="tel:+18658030633" className="btn-primary text-lg px-10 py-4">
+              <Phone size={20} /> Call Now: (865) 803-0633
             </a>
             <Link to="/contact" className="btn-outline text-lg px-10 py-4">
               Request a Quote
@@ -351,7 +351,7 @@ export default function Home() {
               as="h3"
               className="font-semibold text-forge-navy text-lg"
             >
-              Fully Licensed, Bonded &amp; Insured
+              Fully Licensed &amp; Insured
             </EditableField>
             <EditableField
               id="home-compliance-body"

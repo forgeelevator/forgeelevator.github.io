@@ -68,7 +68,7 @@ export default function About() {
           <EditableField id="about-hero-eyebrow" label="About › Hero › Eyebrow" as="p" className="section-label mb-3">
             About Forge Elevator
           </EditableField>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
             <EditableField id="about-hero-h1-line1" label="About › Hero › Headline — line 1" as="span">
               Built on Reputation.
             </EditableField>

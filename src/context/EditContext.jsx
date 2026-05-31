@@ -36,6 +36,23 @@ export function EditProvider({ children }) {
   // Set<id> — fields whose submissions have been applied to the site
   const [completedIds, setCompletedIds] = useState(new Set())
 
+  // Map<id, className> — temporary className overrides for suggestion previewing.
+  // Applied by EditableField in both view and edit mode; cleared when review closes.
+  const [previewOverrides, setPreviewOverridesState] = useState(new Map())
+
+  const setPreviewOverride = useCallback((id, className) => {
+    setPreviewOverridesState((prev) => {
+      const next = new Map(prev)
+      if (className == null) next.delete(id)
+      else next.set(id, className)
+      return next
+    })
+  }, [])
+
+  const clearPreviewOverrides = useCallback(() => {
+    setPreviewOverridesState(new Map())
+  }, [])
+
   // Active theme — site theme lives in index.css; localStorage is only used so the
   // picker UI remembers the last submitted/previewed theme within a session.
   // On mount, clear any stale localStorage override (flash script is gone, so it
@@ -130,6 +147,7 @@ export function EditProvider({ children }) {
     setIsAdmin(false)
     setServerPendingIds(new Set())
     setCompletedIds(new Set())
+    setPreviewOverridesState(new Map())
   }, [])
 
   const toggleEditMode = useCallback(() => {
@@ -152,6 +170,9 @@ export function EditProvider({ children }) {
         serverPendingIds,
         refreshServerPending,
         completedIds,
+        previewOverrides,
+        setPreviewOverride,
+        clearPreviewOverrides,
         logout,
         theme,
         setTheme,

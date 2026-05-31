@@ -21,7 +21,7 @@ export default function EditableField({
   className = '',
   ...rest
 }) {
-  const { isEditMode, revision, pendingChanges, serverPendingIds, completedIds, setChange, removeChange } = useEdit()
+  const { isEditMode, revision, pendingChanges, serverPendingIds, completedIds, previewOverrides, setChange, removeChange } = useEdit()
 
   // Normalise whitespace so template-literal line breaks don't create false dirty states
   const original = String(children ?? '').replace(/\s+/g, ' ').trim()
@@ -32,6 +32,8 @@ export default function EditableField({
   const isDirty = current !== original
   const isServerPending = serverPendingIds.has(id)
   const isCompleted = !isServerPending && completedIds.has(id)
+  // className override from suggestion preview — takes precedence over the prop
+  const activeClassName = previewOverrides.get(id) ?? className
 
   // Keep context map in sync
   useEffect(() => {
@@ -63,7 +65,7 @@ export default function EditableField({
   // ── View mode ──────────────────────────────────────────────────────────────
   if (!isEditMode) {
     return (
-      <Tag className={className} {...rest}>
+      <Tag className={activeClassName} data-field-id={id} {...rest}>
         {current}
       </Tag>
     )
@@ -100,7 +102,8 @@ export default function EditableField({
   return (
     <Tag
       ref={elRef}
-      className={`${className} ${editClass}`}
+      data-field-id={id}
+      className={`${activeClassName} ${editClass}`}
       contentEditable
       suppressContentEditableWarning
       spellCheck={false}

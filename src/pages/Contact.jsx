@@ -23,12 +23,9 @@ const URGENCY = [
 
 const serviceAreas = [
   { id: 'area-knoxville',   text: 'Knoxville' },
-  { id: 'area-oak-ridge',   text: 'Oak Ridge' },
-  { id: 'area-maryville',   text: 'Maryville / Alcoa' },
-  { id: 'area-morristown',  text: 'Morristown' },
+  { id: 'area-oak-ridge',   text: 'Chattanooga' },
+  { id: 'area-maryville',   text: 'Tri-Cities' },
   { id: 'area-sevierville', text: 'Sevierville / Gatlinburg' },
-  { id: 'area-jc',          text: 'Johnson City / Kingsport' },
-  { id: 'area-bristol',     text: 'Bristol, TN' },
   { id: 'area-surrounding', text: 'Surrounding East TN Counties' },
 ]
 
@@ -128,9 +125,9 @@ export default function Contact() {
             id="contact-hero-h1"
             label="Contact › Hero › Headline"
             as="h1"
-            className="font-display text-5xl md:text-6xl font-bold text-white leading-tight mb-5"
+            className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight mb-5"
           >
-            Let's Talk Elevators
+            READY FOR AN ELEVATOR PARTNER YOU CAN TRUST?
           </EditableField>
           <EditableField
             id="contact-hero-body"
@@ -140,7 +137,7 @@ export default function Contact() {
             className="text-gray-300 text-lg max-w-2xl leading-relaxed"
           >
             Request a quote, schedule a service visit, or reach out for emergency support.
-            Our team is ready to help.
+            Whether you need immediate assistance or simply have questions, our team is ready to help.
           </EditableField>
         </div>
         <div
@@ -172,8 +169,9 @@ export default function Contact() {
                 multiline
                 className="text-sm text-white/80 mb-4"
               >
-                For passenger entrapments or elevator failures requiring immediate response,
-                call us directly — don't wait for a form.
+                Passenger entrapments and equipment failures can't wait until Monday
+                morning. That's why our team is available 24/7, providing rapid response and real
+                support when it matters most.
               </EditableField>
               <a
                 href={phoneToHref(phone)}
