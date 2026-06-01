@@ -81,7 +81,7 @@ export default function Home() {
         }}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl lg:max-w-4xl">
             <EditableField
               id="home-hero-eyebrow"
               label="Home › Hero › Eyebrow"
@@ -90,7 +90,7 @@ export default function Home() {
             >
               East Tennessee's Elevator Specialists
             </EditableField>
-            <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
               <EditableField id="home-hero-h1-line1" label="Home › Hero › Headline — line 1" as="span">
                 WE'RE NOT THE BIGGEST.
               </EditableField>
