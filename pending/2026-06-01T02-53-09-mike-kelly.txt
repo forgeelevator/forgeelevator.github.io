@@ -1,0 +1,40 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 31, 2026, 10:53 PM
+Signed by: mike kelly
+
+CHANGES (7 fields):
+
+[services-hydraulic-bullet-1]
+Section: Services › Hydraulic Elevator Service › Bullet 1
+Original: Hydraulic fluid replacement and environmental compliance
+Requested: Controllers & Drives 
+
+[services-hydraulic-bullet-2]
+Section: Services › Hydraulic Elevator Service › Bullet 2
+Original: Cylinder integrity testing and leak detection
+Requested: All hydraulic system and pumps
+
+[services-hydraulic-bullet-3]
+Section: Services › Hydraulic Elevator Service › Bullet 3
+Original: Valve adjustment and replacement
+Requested: Door operator and door equpiment 
+
+[services-hydraulic-bullet-5]
+Section: Services › Hydraulic Elevator Service › Bullet 5
+Original: Buried cylinder corrosion assessment
+Requested: Other critical componets
+
+[services-hydraulic-bullet-4]
+Section: Services › Hydraulic Elevator Service › Bullet 4
+Original: Power unit service and pump replacement
+Requested: Saftey devices
+
+[services-hydraulic-bullet-6]
+Section: Services › Hydraulic Elevator Service › Bullet 6
+Original: Roped hydraulic system service
+Requested: 
+
+[services-hydraulic-bullet-7]
+Section: Services › Hydraulic Elevator Service › Bullet 7
+Original: Tank and piping inspection
+Requested: 
