@@ -1,0 +1,100 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 31, 2026, 10:26 PM
+Signed by: mike kelly
+
+CHANGES (19 fields):
+
+[home-hero-body]
+Section: Home › Hero › Body paragraph
+Original: From routine maintenance to emergency repairs and full modernizations — Forge Elevator delivers dependable, code-compliant service backed by licensed mechanics and a commitment to getting it right the first time.
+Requested: To bring old-school maintenance and customer service back to the elevator industry by delivering reliable, honest, and non-proprietary solutions that put our customers—not manufacturers—first
+
+[services-maintenance-bullet-1]
+Section: Services › Preventive Maintenance › Bullet 1
+Original: Monthly, quarterly, and annual service contracts available
+Requested: Mutiple service contracts available
+
+[services-maintenance-bullet-4]
+Section: Services › Preventive Maintenance › Bullet 4
+Original: Door operator alignment and interlock testing
+Requested: Routine door maintenance 
+
+[services-maintenance-bullet-5]
+Section: Services › Preventive Maintenance › Bullet 5
+Original: Controller diagnostics and software verification
+Requested: Controller diagnostics and code required software verification
+
+[services-maintenance-desc]
+Section: Services › Preventive Maintenance › Description paragraph
+Original: Regular preventive maintenance is the single most effective way to maximize elevator uptime, extend equipment life, and reduce the risk of unexpected failures. Our comprehensive maintenance programs are tailored to your equipment type, usage volume, and budget.
+Requested: Preventive maintenance is the foundation of Forge Elevator. We bring old-school maintenance principles back to the industry—finding and fixing problems before they become failures.
+
+[services-emergency-desc]
+Section: Services › Emergency Repair › Description paragraph
+Original: Elevator failures and passenger entrapments can happen at any hour. Forge Elevator maintains a team of on-call technicians available around the clock to respond quickly, safely resolve entrapments, diagnose the failure, and restore service as fast as possible.
+Requested: Passenger entrapments and equipment failures can’t wait until Monday morning. That’s why our team is available 24/7, providing rapid response and real support when it matters most.
+
+[services-modernization-bullet-4]
+Section: Services › Modernization & Upgrades › Bullet 4
+Original: Cab interior renovation and ADA compliance updates
+Requested: Cab interior renovation, cladding and ADA compliance updates
+
+[services-modernization-bullet-2]
+Section: Services › Modernization & Upgrades › Bullet 2
+Original: Drive unit modernization (MG set to variable-voltage variable-frequency)
+Requested: Motor, Machine, Pumping Unit, install and replacement
+
+[services-modernization-bullet-1]
+Section: Services › Modernization & Upgrades › Bullet 1
+Original: Control system replacement and reprogramming
+Requested: Control system & Drive replacement and reprogramming
+
+[services-modernization-bullet-5]
+Section: Services › Modernization & Upgrades › Bullet 5
+Original: Lighting retrofit (LED)
+Requested: Lighting & fixture enhancment (LED)
+
+[services-modernization-bullet-6]
+Section: Services › Modernization & Upgrades › Bullet 6
+Original: Communication system upgrades
+Requested: Cellular generated phone line upgrades
+
+[services-hero-body]
+Section: Services › Hero › Body paragraph
+Original: From routine maintenance contracts to full modernizations and 24/7 emergency response — Forge Elevator covers it all for East Tennessee property owners and managers.
+Requested: At Forge Elevator, we keep people moving. We specialize in preventative maintenance, repairs, modernizations, inspections, and emergency service for all major elevator manufacturers. Our goal is simple: keep your elevators running safely, reliably, and efficiently while delivering the responsive service and personal attention that large corporations often overlook. Whether you need routine maintenance, a major modernization, or 24/7 support, Forge Elevator is committed to providing honest recommendations, quality workmanship, and long-term value.
+
+[services-inspections-bullet-5]
+Section: Services › Safety Inspections & Code Compliance › Bullet 5
+Original: Assistance with fire service and Phase III testing
+Requested: 
+
+[services-inspections-bullet-4]
+Section: Services › Safety Inspections & Code Compliance › Bullet 4
+Original: Written correction plans for any deficiencies
+Requested: ASME A17.1 Safety Code compliance review
+
+[services-inspections-bullet-2]
+Section: Services › Safety Inspections & Code Compliance › Bullet 2
+Original: ASME A17.1 Safety Code compliance review
+Requested: Five year-full load and Rupture valve testing
+
+[services-new-construction-bullet-4]
+Section: Services › Residential › Bullet 4
+Original: Code compliance assistance
+Requested: 
+
+[services-new-construction-bullet-6]
+Section: Services › Residential › Bullet 6
+Original: Owner training and handoff
+Requested: 
+
+[services-new-construction-bullet-3]
+Section: Services › Residential › Bullet 3
+Original: Hoistway layout guidance
+Requested: 
+
+[services-new-construction-desc]
+Section: Services › Residential › Description paragraph
+Original: Getting vertical transportation right during construction saves you time, money, and headaches for decades to come. Forge Elevator partners with architects, general contractors, and developers to plan, specify, install, and commission new elevator systems for your project.
+Requested: Residential-free estimates and consultation.
