@@ -1,0 +1,20 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 31, 2026, 8:48 PM
+Signed by: mike kelly
+
+CHANGES (3 fields):
+
+[global-phone]
+Section: Phone Number
+Original: (865) 123-4567
+Requested: (865) 803-0633
+
+[global-hours]
+Section: Business Hours
+Original: Mon–Fri: 7:00 AM – 5:00 PM
+Requested: Mon–Fri: 8:00 AM – 5:00 PM
+
+[global-email]
+Section: Email Address
+Original: service@forgeelevator.com
+Requested: sales@forgeelevator.com
