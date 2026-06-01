@@ -1,0 +1,45 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: May 31, 2026, 10:37 PM
+Signed by: mike kelly
+
+CHANGES (8 fields):
+
+[services-emergency-title]
+Section: Services › Emergency Repair › Title
+Original: Emergency Repair
+Requested: Emergency Service
+
+[services-emergency-card-title]
+Section: Services › Emergency Repair › Card title
+Original: Emergency Repair
+Requested: Emergency Service
+
+[services-modernization-title]
+Section: Services › Modernization & Upgrades › Title
+Original: Modernization & Upgrades
+Requested: Modernization-Traction and Hydraulic
+
+[services-modernization-card-title]
+Section: Services › Modernization & Upgrades › Card title
+Original: Modernization & Upgrades
+Requested: Modernization-Traction and Hydraulic
+
+[services-hydraulic-title]
+Section: Services › Hydraulic Elevator Service › Title
+Original: Hydraulic Elevator Service
+Requested: Repairs
+
+[services-hydraulic-card-title]
+Section: Services › Hydraulic Elevator Service › Card title
+Original: Hydraulic Elevator Service
+Requested: Repairs
+
+[services-hydraulic-card-body]
+Section: Services › Hydraulic Elevator Service › Card call-to-action text
+Original: Need help now? Call our team for immediate assistance or to schedule a service call.
+Requested: Need help now? Call our team for immediate assistance or to schedule a repair call.
+
+[services-hydraulic-desc]
+Section: Services › Hydraulic Elevator Service › Description paragraph
+Original: Hydraulic elevators require specialized knowledge of fluid dynamics, cylinder integrity, and valve performance that differs significantly from traction systems. Our technicians are trained to service all major hydraulic elevator configurations, from in-ground to telescoping units.
+Requested: We repair elevators of all makes and models, including controllers, drives, motors, pumps, door operators, safety devices, and other critical components. Our technicians provide prompt, reliable solutions to restore safe and dependable operation.
