@@ -110,9 +110,9 @@ export default function Home() {
               multiline
               className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl"
             >
-              From routine maintenance to emergency repairs and full modernizations — Forge Elevator
-              delivers dependable, code-compliant service backed by licensed mechanics and a commitment
-              to getting it right the first time.
+              To bring old-school maintenance and customer service back to the elevator industry by
+              delivering reliable, honest, and non-proprietary solutions that put our
+              customers — not manufacturers — first.
             </EditableField>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact" className="btn-primary text-base px-8 py-4">
@@ -195,8 +195,8 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map(({ id, icon: Icon, title, desc }) => (
               <div key={id} className="card p-6 group">
-                <div className="w-12 h-12 bg-forge-fire/10 rounded-sm flex items-center justify-center mb-5 group-hover:bg-forge-fire group-hover:text-white transition-colors">
-                  <Icon size={22} className="text-forge-fire group-hover:text-white transition-colors" />
+                <div className="w-12 h-12 bg-forge-fire/10 rounded-sm flex items-center justify-center mb-5 group-hover:bg-forge-fire group-hover:text-forge-navy transition-colors">
+                  <Icon size={22} className="text-forge-fire group-hover:text-forge-navy transition-colors" />
                 </div>
                 <EditableField
                   id={`home-service-${id}-title`}
@@ -241,7 +241,7 @@ export default function Home() {
               }}
             />
             {/* Badge overlay */}
-            <div className="absolute -bottom-5 -right-5 bg-forge-fire text-white rounded-sm p-5 shadow-xl hidden sm:block">
+            <div className="absolute -bottom-5 -right-5 bg-forge-fire text-forge-navy rounded-sm p-5 shadow-xl hidden sm:block">
               <Clock size={28} className="mb-1" />
               <EditableField id="home-why-badge-value" label="Home › Why Forge › Badge value" as="p" className="font-display text-2xl font-bold leading-none">24/7</EditableField>
               <EditableField id="home-why-badge-label" label="Home › Why Forge › Badge label" as="p" className="text-xs font-medium uppercase tracking-widest mt-1">On Call</EditableField>

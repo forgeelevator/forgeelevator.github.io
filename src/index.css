@@ -29,8 +29,8 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-forge-fire text-white font-semibold px-6 py-3 rounded-sm
-           hover:bg-forge-amber transition-colors duration-200 shadow-md;
+    @apply inline-flex items-center gap-2 bg-forge-fire text-forge-navy font-semibold px-6 py-3 rounded-sm
+           hover:bg-forge-navy hover:text-white transition-colors duration-200 shadow-md;
   }
 
   .btn-outline {

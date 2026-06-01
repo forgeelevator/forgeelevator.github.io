@@ -14,15 +14,13 @@ const services = [
     icon: Wrench,
     title: 'Preventive Maintenance',
     headline: 'Proactive Care That Prevents Downtime',
-    desc: `Regular preventive maintenance is the single most effective way to maximize elevator uptime,
-    extend equipment life, and reduce the risk of unexpected failures. Our comprehensive maintenance
-    programs are tailored to your equipment type, usage volume, and budget.`,
+    desc: `Preventive maintenance is the foundation of Forge Elevator. We bring old-school maintenance principles back to the industry — finding and fixing problems before they become failures.`,
     bullets: [
-      'Monthly, quarterly, and annual service contracts available',
+      'Multiple service contracts available',
       'Lubrication of all moving parts and guide shoes',
       'Inspection of ropes, cables, chains, and suspension components',
-      'Door operator alignment and interlock testing',
-      'Controller diagnostics and software verification',
+      'Routine door maintenance',
+      'Controller diagnostics and code required software verification',
       'Pit and machine room inspections',
       'Detailed service reports after every visit',
     ],
@@ -31,11 +29,9 @@ const services = [
   {
     id: 'emergency',
     icon: Zap,
-    title: 'Emergency Repair',
+    title: 'Emergency Service',
     headline: '24/7 Rapid Response — Day or Night',
-    desc: `Elevator failures and passenger entrapments can happen at any hour. Forge Elevator maintains
-    a team of on-call technicians available around the clock to respond quickly, safely resolve
-    entrapments, diagnose the failure, and restore service as fast as possible.`,
+    desc: `Passenger entrapments and equipment failures can't wait until Monday morning. That's why our team is available 24/7, providing rapid response and real support when it matters most.`,
     bullets: [
       '24-hour, 7-day-a-week emergency dispatch',
       'Fast response to passenger entrapments',
@@ -49,7 +45,7 @@ const services = [
   {
     id: 'modernization',
     icon: Settings,
-    title: 'Modernization & Upgrades',
+    title: 'Modernization — Traction and Hydraulic',
     headline: 'New Life for Aging Equipment',
     desc: `Modernizations done right. We utilize non-proprietary, non-obsolescent solutions designed for
     long-term reliability and serviceability. In an industry where newer equipment is often engineered
@@ -57,12 +53,12 @@ const services = [
     costs, and protect your investment. By avoiding proprietary systems, any qualified elevator service
     provider can maintain your equipment — keeping you in control, not the manufacturer.`,
     bullets: [
-      'Control system replacement and reprogramming',
-      'Drive unit modernization (MG set to variable-voltage variable-frequency)',
+      'Control system & Drive replacement and reprogramming',
+      'Motor, Machine, Pumping Unit, install and replacement',
       'Door operator replacement and upgrade',
-      'Cab interior renovation and ADA compliance updates',
-      'Lighting retrofit (LED)',
-      'Communication system upgrades',
+      'Cab interior renovation, cladding and ADA compliance updates',
+      'Lighting & fixture enhancement (LED)',
+      'Cellular generated phone line upgrades',
       'Fixture replacement and leveling improvements',
     ],
     tag: 'Extend Equipment Life',
@@ -77,10 +73,9 @@ const services = [
     address them before they become violations or safety hazards.`,
     bullets: [
       'Annual safety inspections as required by Tennessee state code',
-      'ASME A17.1 Safety Code compliance review',
+      'Five-year full load and rupture valve testing',
       'Detailed written inspection reports',
-      'Written correction plans for any deficiencies',
-      'Assistance with fire service and Phase III testing',
+      'ASME A17.1 Safety Code compliance review',
       'ADA compliance review on request',
     ],
     tag: 'Code Compliant',
@@ -90,36 +85,28 @@ const services = [
     icon: Building2,
     title: 'Residential',
     headline: 'Right-Sized Vertical Transportation from Day One',
-    desc: `Getting vertical transportation right during construction saves you time, money, and headaches
-    for decades to come. Forge Elevator partners with architects, general contractors, and developers
-    to plan, specify, install, and commission new elevator systems for your project.`,
+    desc: `Residential — free estimates and consultation.`,
     bullets: [
       'Consultation during design and specification phases',
       'Equipment selection and vendor coordination',
-      'Hoistway layout guidance',
-      'Code compliance assistance',
       'Modernization & technology upgrades',
-      'Owner training and handoff',
     ],
     tag: 'New Builds Welcome',
   },
   {
     id: 'hydraulic',
     icon: Droplets,
-    title: 'Hydraulic Elevator Service',
+    title: 'Repairs',
     headline: 'Specialized Expertise in Hydraulic Systems',
-    desc: `Hydraulic elevators require specialized knowledge of fluid dynamics, cylinder integrity, and
-    valve performance that differs significantly from traction systems. Our technicians are trained
-    to service all major hydraulic elevator configurations, from in-ground to telescoping units.`,
+    desc: `We repair elevators of all makes and models, including controllers, drives, motors, pumps, door operators, safety devices, and other critical components. Our technicians provide prompt, reliable solutions to restore safe and dependable operation.`,
     bullets: [
-      'Hydraulic fluid replacement and environmental compliance',
-      'Cylinder integrity testing and leak detection',
-      'Valve adjustment and replacement',
-      'Power unit service and pump replacement',
-      'Buried cylinder corrosion assessment',
-      'Roped hydraulic system service',
-      'Tank and piping inspection',
+      'Controllers & Drives',
+      'All hydraulic system and pumps',
+      'Door operator and door equipment',
+      'Safety devices',
+      'Other critical components',
     ],
+    cardBody: 'Need help now? Call our team for immediate assistance or to schedule a repair call.',
     tag: 'Traction & Hydraulic',
   },
 ]
@@ -162,8 +149,13 @@ export default function Services() {
             multiline
             className="text-gray-300 text-lg max-w-2xl leading-relaxed"
           >
-            From routine maintenance contracts to full modernizations and 24/7 emergency response —
-            Forge Elevator covers it all for East Tennessee property owners and managers.
+            At Forge Elevator, we keep people moving. We specialize in preventative maintenance,
+            repairs, modernizations, inspections, and emergency service for all major elevator
+            manufacturers. Our goal is simple: keep your elevators running safely, reliably, and
+            efficiently while delivering the responsive service and personal attention that large
+            corporations often overlook. Whether you need routine maintenance, a major modernization,
+            or 24/7 support, Forge Elevator is committed to providing honest recommendations,
+            quality workmanship, and long-term value.
           </EditableField>
         </div>
         <div
@@ -192,7 +184,7 @@ export default function Services() {
       </section>
 
       {/* ── Service detail sections ── */}
-      {services.map(({ id, icon: Icon, title, headline, desc, bullets, tag }, i) => (
+      {services.map(({ id, icon: Icon, title, headline, desc, bullets, tag, cardBody }, i) => (
         <section
           key={id}
           id={id}
@@ -277,7 +269,7 @@ export default function Services() {
                     multiline
                     className="text-gray-400 text-sm leading-relaxed mb-6"
                   >
-                    Need help now? Call our team for immediate assistance or to schedule a service call.
+                    {cardBody || 'Need help now? Call our team for immediate assistance or to schedule a service call.'}
                   </EditableField>
                   <a href={phoneToHref(phone)} className="flex items-center gap-2 text-forge-fire font-semibold text-sm hover:underline">
                     <Phone size={16} />
@@ -299,7 +291,7 @@ export default function Services() {
               id="services-cta-headline"
               label="Services › Bottom CTA › Headline"
               as="h2"
-              className="font-display text-3xl font-bold text-white"
+              className="font-display text-3xl font-bold text-forge-navy"
             >
               Don't See What You Need?
             </EditableField>
@@ -307,12 +299,12 @@ export default function Services() {
               id="services-cta-body"
               label="Services › Bottom CTA › Body"
               as="p"
-              className="text-white/80 mt-1"
+              className="text-forge-navy/80 mt-1"
             >
               Contact us — if it's elevator-related, we can help.
             </EditableField>
           </div>
-          <Link to="/contact" className="btn-outline flex-shrink-0 text-base px-8 py-4">
+          <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-forge-navy text-forge-navy font-semibold text-base px-8 py-4 rounded-sm hover:bg-forge-navy hover:text-white transition-colors duration-200 flex-shrink-0">
             Get in Touch <ArrowRight size={18} />
           </Link>
         </div>

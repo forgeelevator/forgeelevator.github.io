@@ -153,7 +153,7 @@ export default function Contact() {
           {/* ── Contact info sidebar ── */}
           <div className="lg:col-span-1">
             {/* Emergency callout */}
-            <div className="bg-forge-fire rounded-sm p-6 text-white mb-6">
+            <div className="bg-forge-fire rounded-sm p-6 text-forge-navy mb-6">
               <EditableField
                 id="contact-emergency-title"
                 label="Contact › Sidebar › Emergency callout title"
@@ -167,7 +167,7 @@ export default function Contact() {
                 label="Contact › Sidebar › Emergency callout body"
                 as="p"
                 multiline
-                className="text-sm text-white/80 mb-4"
+                className="text-sm text-forge-navy/80 mb-4"
               >
                 Passenger entrapments and equipment failures can't wait until Monday
                 morning. That's why our team is available 24/7, providing rapid response and real
@@ -175,11 +175,11 @@ export default function Contact() {
               </EditableField>
               <a
                 href={phoneToHref(phone)}
-                className="flex items-center gap-2 text-white font-bold text-lg hover:underline"
+                className="flex items-center gap-2 text-forge-navy font-bold text-lg hover:underline"
               >
                 <Phone size={20} /> <GlobalField id="global-phone" />
               </a>
-              <EditableField id="contact-emergency-hours" label="Contact › Emergency Callout › Hours note" as="p" className="text-xs text-white/60 mt-1">Available 24 hours, 7 days</EditableField>
+              <EditableField id="contact-emergency-hours" label="Contact › Emergency Callout › Hours note" as="p" className="text-xs text-forge-navy/60 mt-1">Available 24 hours, 7 days</EditableField>
             </div>
 
             {/* Contact details */}

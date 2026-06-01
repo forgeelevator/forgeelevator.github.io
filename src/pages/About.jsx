@@ -151,9 +151,9 @@ export default function About() {
             />
             {/* Accent block */}
             <div className="absolute -bottom-4 -left-4 bg-forge-fire p-5 rounded-sm shadow-xl hidden sm:block">
-              <EditableField id="about-story-badge-line1" label="About › Story › Badge — line 1" as="p" className="font-display text-3xl font-bold text-white leading-none">East</EditableField>
-              <EditableField id="about-story-badge-line2" label="About › Story › Badge — line 2" as="p" className="font-display text-2xl font-bold text-white leading-none">Tennessee</EditableField>
-              <EditableField id="about-story-badge-sub" label="About › Story › Badge — subtitle" as="p" className="text-xs font-semibold text-white/80 uppercase tracking-widest mt-1">Proudly Serving</EditableField>
+              <EditableField id="about-story-badge-line1" label="About › Story › Badge — line 1" as="p" className="font-display text-3xl font-bold text-forge-navy leading-none">East</EditableField>
+              <EditableField id="about-story-badge-line2" label="About › Story › Badge — line 2" as="p" className="font-display text-2xl font-bold text-forge-navy leading-none">Tennessee</EditableField>
+              <EditableField id="about-story-badge-sub" label="About › Story › Badge — subtitle" as="p" className="text-xs font-semibold text-forge-navy/80 uppercase tracking-widest mt-1">Proudly Serving</EditableField>
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function About() {
             {values.map(({ id, icon: Icon, title, desc }) => (
               <div key={id} className="card p-7 text-center">
                 <div className="w-14 h-14 bg-forge-fire rounded-full flex items-center justify-center mx-auto mb-5">
-                  <Icon size={24} className="text-white" />
+                  <Icon size={24} className="text-forge-navy" />
                 </div>
                 <EditableField
                   id={`about-value-${id}-title`}
