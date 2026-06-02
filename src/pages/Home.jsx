@@ -74,7 +74,7 @@ export default function Home() {
               rgb(var(--forge-steel-rgb) / 0.80) 60%,
               rgb(var(--forge-navy-rgb) / 0.95) 100%
             ),
-            url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80&fit=crop')
+            url('/assets/hero.png')
           `,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -178,7 +178,7 @@ export default function Home() {
               as="h2"
               className="section-title mb-4"
             >
-              Complete Elevator Solutions
+              Elevator Solutions Made Simple.
             </EditableField>
             <EditableField
               id="home-services-body"
@@ -187,8 +187,13 @@ export default function Home() {
               multiline
               className="text-gray-500 max-w-xl mx-auto"
             >
-              Whether you manage a single building or a large commercial portfolio,
-              we have the expertise to keep your vertical transportation reliable and compliant.
+              At Forge Elevator, we specialize in preventative maintenance, repairs, modernizations,
+              inspections, and emergency service for all major elevator manufacturers. Our goal is
+              simple: keep your elevators running safely, reliably, and efficiently while delivering
+              the responsive service and personal attention that large corporations often overlook.
+              Whether you need routine maintenance, a major modernization, or 24/7 support, Forge
+              Elevator is committed to providing honest recommendations, quality workmanship, and
+              long-term value.
             </EditableField>
           </div>
 
@@ -235,7 +240,7 @@ export default function Home() {
             <div
               className="aspect-[4/3] rounded-sm overflow-hidden"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80&fit=crop')`,
+                backgroundImage: `url('/assets/experts.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}

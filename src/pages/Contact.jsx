@@ -188,14 +188,9 @@ export default function Contact() {
               <div className="flex items-start gap-3 text-sm text-gray-600">
                 <Phone size={16} className="mt-0.5 flex-shrink-0 text-forge-fire" />
                 <div>
-                  <EditableField
-                    id="global-phone"
-                    label="Phone Number"
-                    as="span"
-                    className="hover:text-forge-fire transition-colors"
-                  >
-                    (865) 123-4567
-                  </EditableField>
+                  <span className="hover:text-forge-fire transition-colors">
+                    {phone}
+                  </span>
                   <EditableField id="contact-info-phone-sub" label="Contact › Sidebar › Phone sublabel" as="span" className="block text-xs text-gray-400">Main &amp; Emergency Line</EditableField>
                 </div>
               </div>
@@ -412,7 +407,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs text-gray-400 text-center">
-                  For emergencies, call <a href="tel:+18651234567" className="text-forge-fire font-medium">(865) 123-4567</a> directly. We respond 24/7.
+                  For emergencies, call <a href={phoneToHref(phone)} className="text-forge-fire font-medium">{phone}</a> directly. We respond 24/7.
                 </p>
               </form>
             </div>

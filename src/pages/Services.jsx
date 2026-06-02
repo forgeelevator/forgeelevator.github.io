@@ -123,7 +123,7 @@ export default function Services() {
         style={{
           backgroundImage: `
             linear-gradient(to bottom right, rgb(var(--forge-navy-rgb) / 0.95) 0%, rgb(var(--forge-steel-rgb) / 0.88) 100%),
-            url('https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=1400&q=80&fit=crop')
+            url('/assets/spectrum.png')
           `,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

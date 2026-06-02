@@ -31,9 +31,9 @@ const values = [
 
 const certifications = [
   { id: 'cert-asme',     text: 'ASME A17.1 Safety Code Compliant' },
-  { id: 'cert-license',  text: 'State of Tennessee Licensed Elevator Contractors' },
+  { id: 'cert-license',  text: 'BC-17 Licensed' },
   { id: 'cert-neiep',    text: 'NEIEP-Trained Mechanics' },
-  { id: 'cert-bonded',   text: 'Fully Bonded & Insured' },
+  { id: 'cert-bonded',   text: 'Fully Licensed & Insured' },
   { id: 'cert-osha',     text: 'OSHA Safety Certified' },
   { id: 'cert-training', text: 'Continuing Education & Manufacturer Training' },
 ]
@@ -102,7 +102,7 @@ export default function About() {
               Our Story
             </EditableField>
             <EditableField id="about-story-title" label="About › Story › Title" as="h2" className="section-title mb-6">
-              Local Roots, Professional Standards
+              Local Accountability, Professional Execution
             </EditableField>
             <EditableField
               id="about-story-p1"
@@ -111,10 +111,12 @@ export default function About() {
               multiline
               className="text-gray-500 leading-relaxed mb-5"
             >
-              Forge Elevator was born from a simple frustration: building owners in East Tennessee deserved
-              better elevator service. Too often, large national companies treated local clients like low
-              priorities — slow response times, impersonal service, and technicians who had never even
-              visited the client's building before.
+              Forge Elevator was formed to give a true alternative to large national providers whose
+              decision-making, pricing, and priorities are often disconnected from the customers they
+              serve. What sets Forge Elevator apart is its ownership-led model and local commitment.
+              Forge is the only independent, union elevator company based in the Knoxville area, giving
+              customers access to highly trained, safety-focused, certified professionals while
+              supporting the local workforce.
             </EditableField>
             <EditableField
               id="about-story-p2"
@@ -123,9 +125,11 @@ export default function About() {
               multiline
               className="text-gray-500 leading-relaxed mb-5"
             >
-              We set out to change that. As a locally owned company, we know the Knoxville metro and
-              surrounding East Tennessee communities. We build real relationships with building managers,
-              property owners, and facilities teams. When you call us, you get a person — not a queue.
+              We are not here to push unnecessary upgrades or lock customers into proprietary equipment.
+              We focus on practical solutions, fast response, clear communication, and long-term
+              reliability. Forge Elevator was built to bring back honest service, real maintenance,
+              with simple, honest contracts. We believe customers should understand exactly what
+              they're paying for and have the flexibility to make the best decision for their building.
             </EditableField>
             <EditableField
               id="about-story-p3"
@@ -134,9 +138,8 @@ export default function About() {
               multiline
               className="text-gray-500 leading-relaxed"
             >
-              Our mechanics are licensed, factory-trained, and deeply experienced with the full range of
-              elevator systems — from vintage hydraulic units in historic downtown buildings to modern
-              traction systems in new commercial towers.
+              Our success is measured by the quality of our work, the reliability of your equipment,
+              and the trust we strive to earn every day.
             </EditableField>
           </div>
 
@@ -218,8 +221,8 @@ export default function About() {
               multiline
               className="text-gray-500 mb-8 leading-relaxed"
             >
-              We take compliance seriously. All Forge Elevator technicians hold current state licenses
-              and receive ongoing education to stay ahead of code requirements and new equipment standards.
+              We take compliance seriously. All Forge Elevator Mechanics are certified through the
+              International Union of Elevator Constructors.
             </EditableField>
             <ul className="space-y-3">
               {certifications.map(({ id, text }) => (
