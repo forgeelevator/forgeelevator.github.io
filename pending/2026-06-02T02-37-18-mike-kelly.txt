@@ -1,0 +1,10 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: Jun 1, 2026, 10:37 PM
+Signed by: mike kelly
+
+CHANGES (1 field):
+
+[about-story-title]
+Section: About › Story › Title
+Original: Local Roots, Professional Standards
+Requested: Local Accountability, Professional Execution
