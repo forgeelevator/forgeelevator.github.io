@@ -1,0 +1,50 @@
+FORGE ELEVATOR — Site Content Update Request
+Submitted: Jun 1, 2026, 10:07 PM
+Signed by: mike kelly
+
+CHANGES (9 fields):
+
+[home-services-body]
+Section: Home › Services Grid › Body paragraph
+Original: Whether you manage a single building or a large commercial portfolio, we have the expertise to keep your vertical transportation reliable and compliant.
+Requested: At Forge Elevator, We specialize in preventative maintenance, repairs, modernizations, inspections, and emergency service for all major elevator manufacturers. Our goal is simple: keep your elevators running safely, reliably, and efficiently while delivering the responsive service and personal attention that large corporations often overlook. Whether you need routine maintenance, a major modernization, or 24/7 support, Forge Elevator is committed to providing honest recommendations, quality workmanship, and long-term value.
+
+[home-services-title]
+Section: Home › Services Grid › Title
+Original: Complete Elevator Solutions
+Requested: Elevator Soultions Made Simple.
+
+[about-story-p1]
+Section: About › Story › Paragraph 1
+Original: Forge Elevator was born from a simple frustration: building owners in East Tennessee deserved better elevator service. Too often, large national companies treated local clients like low priorities — slow response times, impersonal service, and technicians who had never even visited the client's building before.
+Requested: Forge Elevator was formed to give a true alternative to large national providers whose decision-making, pricing, and priorities are often disconnected from the customers they serve. What sets Forge Elevator apart is its ownership-led model and local commitment. Forge is the only independent, union elevator company based in the Knoxville area, giving customers access to highly trained, safety-focused, certified professionals while supporting the local workforce. 
+
+[about-story-p2]
+Section: About › Story › Paragraph 2
+Original: We set out to change that. As a locally owned company, we know the Knoxville metro and surrounding East Tennessee communities. We build real relationships with building managers, property owners, and facilities teams. When you call us, you get a person — not a queue.
+Requested: We are not here to push unnecessary upgrades or lock customers into proprietary equipment. We focus on practical solutions, fast response, clear communication, and long-term reliability. Forge Elevator was built to bring back honest service, real maintenance, with simple, honest contracts. We believe customers should understand exactly what they’re paying for and have the flexibility to make the best decision for their building.
+
+[about-story-p3]
+Section: About › Story › Paragraph 3
+Original: Our mechanics are licensed, factory-trained, and deeply experienced with the full range of elevator systems — from vintage hydraulic units in historic downtown buildings to modern traction systems in new commercial towers.
+Requested: Our success is measured by the quality of our work, the reliablity of your equpiment, and the turst we strive for every day.  
+
+[about-cert-license]
+Section: About › Credentials › State of Tennessee Licensed Elevator Contractors
+Original: State of Tennessee Licensed Elevator Contractors
+Requested: BC-17 Licensed
+
+[about-creds-body]
+Section: About › Credentials › Body paragraph
+Original: We take compliance seriously. All Forge Elevator technicians hold current state licenses and receive ongoing education to stay ahead of code requirements and new equipment standards.
+Requested: We take compliance seriously. All Forge Elevator Mechanics are certifed through the Internation Union of Elevator Constructors. 
+
+[about-cert-bonded]
+Section: About › Credentials › Fully Bonded & Insured
+Original: Fully Bonded & Insured
+Requested: Fully Licensed & Insured
+
+[global-phone]
+Section: Phone Number
+Original: (865) 123-4567
+Requested: (865) 803-0633
