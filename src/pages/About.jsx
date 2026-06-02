@@ -147,7 +147,7 @@ export default function About() {
             <div
               className="aspect-[4/3] rounded-sm overflow-hidden"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80&fit=crop')`,
+                backgroundImage: `url('/assets/downtown.jpg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
