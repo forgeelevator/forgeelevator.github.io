@@ -123,7 +123,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
-          <p>&copy; {year} Forge Elevator. All rights reserved. <span className="text-gray-600">v1.1</span></p>
+          <p>&copy; {year} Forge Elevator. All rights reserved. <span className="text-gray-600">v1.1.1</span></p>
           <p>Licensed &amp; Insured &bull; East Tennessee's Trusted Elevator Company</p>
         </div>
       </div>

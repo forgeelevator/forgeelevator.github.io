@@ -86,7 +86,7 @@ export default function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          access_key: 'e813a88f-3f52-44dc-affc-3276ca43c93a',
           subject: `New Contact from ${form.name} — ${form.urgency}`,
           message: body,
           from_name: form.name,
