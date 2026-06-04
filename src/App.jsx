@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { EditProvider } from './context/EditContext'
 import { useEdit } from './context/EditContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import LoginGate from './components/LoginGate'
+import AdminLogin from './components/LoginGate'
 import EditBar from './components/EditBar'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -19,8 +19,8 @@ function ScrollToTop() {
   return null
 }
 
-// Inner layout — must be inside EditProvider to call useEdit()
-function AppLayout() {
+// Site shell — must be inside EditProvider to call useEdit()
+function SiteLayout() {
   const { isAdmin, isEditMode } = useEdit()
   // Offset <main> by the admin bar height so it never sits under the fixed bar:
   //   36px  (h-9)       — admin preview mode (bar only)
@@ -33,12 +33,7 @@ function AppLayout() {
       <EditBar />
       <Navbar />
       <main className={mainOffset}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Outlet />
       </main>
       <Footer />
     </>
@@ -49,9 +44,15 @@ export default function App() {
   return (
     <EditProvider>
       <BrowserRouter>
-        <LoginGate>
-          <AppLayout />
-        </LoginGate>
+        <Routes>
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route element={<SiteLayout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="services" element={<Services />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </EditProvider>
   )

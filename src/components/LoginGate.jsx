@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, Navigate } from 'react-router-dom'
 import { useEdit } from '../context/EditContext'
 
 // Credentials are read from environment variables at build time.
@@ -9,26 +10,16 @@ const CORRECT_USER = import.meta.env.VITE_ADMIN_USER ?? ''
 const CORRECT_PASS = import.meta.env.VITE_ADMIN_PASS ?? ''
 const SESSION_KEY = 'forge_preview_auth'
 
-export default function LoginGate({ children }) {
+export default function AdminLogin() {
   const { setIsAdmin, isAdmin } = useEdit()
+  const navigate = useNavigate()
   const [authed, setAuthed] = useState(() => sessionStorage.getItem(SESSION_KEY) === '1')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  // React to logout() clearing isAdmin — clears session and resets the login form
-  // Safe on refresh because EditContext also initialises isAdmin from sessionStorage,
-  // so both start as true and !isAdmin is false on first render.
-  useEffect(() => {
-    if (!isAdmin && authed) {
-      sessionStorage.removeItem(SESSION_KEY)
-      setAuthed(false)
-      setUsername('')
-      setPassword('')
-    }
-  }, [isAdmin])
-
-  if (authed) return children
+  // If already authenticated, redirect straight to the site
+  if (authed) return <Navigate to="/" replace />
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -36,6 +27,7 @@ export default function LoginGate({ children }) {
       sessionStorage.setItem(SESSION_KEY, '1')
       setAuthed(true)
       setIsAdmin(true)
+      navigate('/')
     } else {
       setError('Invalid username or password.')
       setPassword('')
@@ -60,8 +52,8 @@ export default function LoginGate({ children }) {
         </div>
 
         <div className="bg-white rounded-sm shadow-2xl p-8">
-          <h1 className="font-display text-2xl font-bold text-forge-navy mb-1">Preview Access</h1>
-          <p className="text-gray-400 text-sm mb-7">This site is currently in private preview.</p>
+          <h1 className="font-display text-2xl font-bold text-forge-navy mb-1">Admin Access</h1>
+          <p className="text-gray-400 text-sm mb-7">Sign in to enable content editing.</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -99,13 +91,13 @@ export default function LoginGate({ children }) {
             )}
 
             <button type="submit" className="btn-primary w-full justify-center py-3 text-sm mt-2">
-              Enter Site
+              Sign In
             </button>
           </form>
         </div>
 
         <p className="text-center text-gray-600 text-xs mt-5">
-          Demo preview — not publicly accessible yet.
+          Admin access only.
         </p>
       </div>
     </div>

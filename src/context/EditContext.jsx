@@ -141,6 +141,7 @@ export function EditProvider({ children }) {
   }, [])
 
   const logout = useCallback(() => {
+    sessionStorage.removeItem('forge_preview_auth')
     setPendingChanges(new Map())
     setRevision((r) => r + 1)
     setIsEditMode(false)
