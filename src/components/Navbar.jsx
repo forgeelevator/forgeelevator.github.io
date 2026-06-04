@@ -39,17 +39,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 bg-forge-fire rounded-sm flex items-center justify-center flex-shrink-0">
-              {/* Simple anvil-inspired mark */}
-              <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
-                <path d="M4 18h16v2H4zM4 14h4v4H4zM9 10h6v8H9zM16 14h4v4h-4zM7 6h10l2 4H5z"/>
-              </svg>
-            </div>
-            <div className="leading-none">
-              <span className="font-display text-xl font-bold text-white tracking-wide">FORGE</span>
-              <span className="block text-forge-fire text-xs font-semibold tracking-widest uppercase">Elevator</span>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img src="/assets/forgeFull.png" alt="Forge Elevator" className="w-auto" 
+            style={{ height: '5rem', position: 'relative', top: '0.5rem' }} />
           </Link>
 
           {/* Desktop nav */}

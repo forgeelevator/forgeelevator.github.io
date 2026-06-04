@@ -40,16 +40,8 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <Link to="/" className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 bg-forge-fire rounded-sm flex items-center justify-center flex-shrink-0">
-              <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
-                <path d="M4 18h16v2H4zM4 14h4v4H4zM9 10h6v8H9zM16 14h4v4h-4zM7 6h10l2 4H5z"/>
-              </svg>
-            </div>
-            <div className="leading-none">
-              <span className="font-display text-lg font-bold text-white tracking-wide">FORGE</span>
-              <span className="block text-forge-fire text-xs font-semibold tracking-widest uppercase">Elevator</span>
-            </div>
+          <Link to="/" className="flex items-center mb-4">
+            <img src="/assets/forgeFull.png" alt="Forge Elevator" className="h-10 w-auto" />
           </Link>
           <p className="text-sm text-gray-400 leading-relaxed">
             Professional elevator maintenance, repair, and modernization serving East Tennessee.
@@ -131,7 +123,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
-          <p>&copy; {year} Forge Elevator. All rights reserved. <span className="text-gray-600">v1.0</span></p>
+          <p>&copy; {year} Forge Elevator. All rights reserved. <span className="text-gray-600">v1.1</span></p>
           <p>Licensed &amp; Insured &bull; East Tennessee's Trusted Elevator Company</p>
         </div>
       </div>

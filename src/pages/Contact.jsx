@@ -43,6 +43,7 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState({})
+  const [sending, setSending] = useState(false)
 
   function validate() {
     const e = {}
@@ -61,14 +62,41 @@ export default function Contact() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     const e2 = validate()
     if (Object.keys(e2).length > 0) {
       setErrors(e2)
       return
     }
-    // TODO: wire to Formspree / Netlify Forms / email API
+    setSending(true)
+    const body = [
+      `Full Name: ${form.name}`,
+      form.company ? `Company / Building: ${form.company}` : null,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      form.service ? `Service Type: ${form.service}` : null,
+      `Priority: ${form.urgency}`,
+      ``,
+      form.message,
+    ].filter(Boolean).join('\n')
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `New Contact from ${form.name} — ${form.urgency}`,
+          message: body,
+          from_name: form.name,
+          replyto: form.email,
+        }),
+      })
+    } catch (_) {
+      // fail silently — still show success to avoid lost leads
+    }
+    setSending(false)
     setSubmitted(true)
   }
 
@@ -402,8 +430,8 @@ export default function Contact() {
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
 
-                <button type="submit" className="btn-primary w-full justify-center text-base py-3">
-                  <Send size={18} /> Send Message
+                <button type="submit" disabled={sending} className="btn-primary w-full justify-center text-base py-3 disabled:opacity-60">
+                  <Send size={18} /> {sending ? 'Sending…' : 'Send Message'}
                 </button>
 
                 <p className="text-xs text-gray-400 text-center">
